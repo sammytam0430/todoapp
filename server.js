@@ -1,5 +1,5 @@
 require('dotenv').config();
-var knex = require('knex')({
+const knex = require('knex')({
   client: 'pg',
   connection: {
     user     : process.env.DB_USER,
@@ -11,7 +11,27 @@ var knex = require('knex')({
   }
 });
 
-const PORT        = process.env.PORT || 8080;
 const express     = require("express");
-const bodyParser  = require("body-parser");
 const app         = express();
+app.set('view engine', 'ejs');
+const bodyParser  = require("body-parser");
+app.use(bodyParser.urlencoded());
+const PORT = process.env.PORT || 8080;
+const connect        = require('connect')
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
+app.get('/', (req, res) => {
+  res.render('./views/user_todo');
+});
+
+app.get('/search', (req, res) => {
+  res.render('./views/main_search');
+});
+
+
+
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}!`);
+});
