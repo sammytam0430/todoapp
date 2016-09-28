@@ -1,11 +1,16 @@
 // Update with your config settings.
-
+require('dotenv').config();
 module.exports = {
 
   development: {
-    client: 'sqlite3',
+    client: 'pg',
     connection: {
-      filename: './dev.sqlite3'
+      user     : process.env.DB_USER,
+      password : process.env.DB_PASS,
+      database : process.env.DB_NAME,
+      host     : process.env.DB_HOST,
+      port     : process.env.DB_POST,
+      ssl      : process.env.DB_SSL
     }
   },
 
