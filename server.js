@@ -1,12 +1,37 @@
-const settings = require("../settings"); // settings.json
-var knex = require('knex')({
+require('dotenv').config();
+const knex = require('knex')({
   client: 'pg',
   connection: {
-    user     : settings.user,
-    password : settings.password,
-    database : settings.database,
-    host     : settings.hostname,
-    port     : settings.port,
-    ssl      : settings.ssl
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASS,
+    database : process.env.DB_NAME,
+    host     : process.env.DB_HOST,
+    port     : process.env.DB_POST,
+    ssl      : process.env.DB_SSL
   }
+});
+
+const express     = require("express");
+const app         = express();
+app.set('view engine', 'ejs');
+const bodyParser  = require("body-parser");
+app.use(bodyParser.urlencoded());
+const PORT = process.env.PORT || 8080;
+const connect        = require('connect')
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
+app.get('/', (req, res) => {
+  res.render('./views/user_todo');
+});
+
+app.get('/search', (req, res) => {
+  res.render('./views/main_search');
+});
+
+
+
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}!`);
 });
