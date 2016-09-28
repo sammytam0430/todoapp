@@ -1,5 +1,5 @@
 // Update with your config settings.
-const settings = require("../settings"); // settings.json
+const settings = require("./settings"); // settings.json
 
 module.exports = {
 
