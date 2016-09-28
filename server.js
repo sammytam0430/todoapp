@@ -22,11 +22,11 @@ const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
 app.get('/', (req, res) => {
-  res.render('./views/user_todo');
+  res.render('user_todo');
 });
 
 app.get('/search', (req, res) => {
-  res.render('./views/main_search');
+  res.render('main_search');
 });
 
 
