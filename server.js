@@ -12,6 +12,7 @@ const knex = require('knex')({
 });
 
 const express     = require("express");
+app.use(express.static('public'));
 const app         = express();
 app.set('view engine', 'ejs');
 const bodyParser  = require("body-parser");
@@ -20,6 +21,7 @@ const PORT = process.env.PORT || 8080;
 const connect        = require('connect')
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
+
 
 app.get('/', (req, res) => {
   res.render('user_todo');
