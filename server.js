@@ -23,7 +23,7 @@ const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
 
-
+// HTML
 app.get('/', (req, res) => {
   res.render('user_todo');
 });
@@ -31,7 +31,6 @@ app.get('/', (req, res) => {
 app.get('/search', (req, res) => {
   res.render('main_search');
 });
-
 
 
 
