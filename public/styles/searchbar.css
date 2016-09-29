@@ -1,0 +1,17 @@
+/*$primary-text:*/
+.search {
+  background-color: white;
+  height: 150px;
+  align-self: center;
+  margin: 0 15% 0 15%;
+  border-radius: 10px; }
+  .search .options {
+    margin-top: 50px;
+    width: 115%; }
+  .search .input-group-field {
+    margin-top: 50px; }
+
+#submit {
+  margin-top: 50px; }
+
+/*# sourceMappingURL=searchbar.css.map */

@@ -1,0 +1,32 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333; }
+
+#nav-bar {
+  background: url("/images/bird.png") #00a087 no-repeat;
+  background-size: 80px 80px;
+  background-position: top left;
+  text-align: center; }
+  #nav-bar .button {
+    margin: 30px 0;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    background: #238c87;
+    padding: 10px 20px 10px 20px; }
+  #nav-bar .button:hover {
+    background: #ffffff;
+    background-image: -webkit-linear-gradient(top, #ffffff, #3498db);
+    background-image: -moz-linear-gradient(top, #ffffff, #3498db);
+    background-image: -ms-linear-gradient(top, #ffffff, #3498db);
+    background-image: -o-linear-gradient(top, #ffffff, #3498db);
+    background-image: linear-gradient(to bottom, #ffffff, #3498db); }
+
+#logo {
+  height: 80px;
+  width: 80px; }
+
+/*# sourceMappingURL=navbar.css.map */
