@@ -11,7 +11,10 @@ module.exports = {
       host     : process.env.DB_HOST,
       port     : process.env.DB_POST,
       ssl      : process.env.DB_SSL
-    }
+    },
+    seeds: {
+      directory: './seeds/'
+  }
   },
 
   staging: {
