@@ -1,8 +1,9 @@
+require('dotenv').config();
 const request = require('request')
 const gooRoot = "https://www.googleapis.com/books/v1/volumes?q="
 const mdRoot = "http://www.omdbapi.com/?y=&plot=full&type=movie&r=json&t="
 const eatRoot = "https://api.yelp.com/v3/businesses/search?location=vancouver+canada&term="
-require('dotenv').config();
+const buyRoot = "http://api.walmartlabs.com/v1/search?apiKey=" + process.env.WALMART_KEY
 
 //POST request to Get OAUTH token from YELP
 var getToken = function(){
@@ -15,32 +16,13 @@ var getToken = function(){
     },
     json: true
   }, function(err, httpResponse, body) {
-    //console.log(body.access_token)
     yelpToken = 'Bearer ' + body.access_token;
+    return yelpToken;
   });
 };
 
-
-var test = function(options, cb) {
-    request.get({
-      url: doRoot + options,
-      headers:{"authorization": "Bearer o7xlBlQDVwvkdIqjZFlAJFAICXXKwm0g8yNBJMW4-sXZx0VMcwdnL4TLE9n6JwmROnEZ2KsAen4K_Oh749j3EhxRumkhws_faXlVVeUdsMFy4yLEdq9gmuTO41_sV3Yx"},
-      json: true
-    },
-      function (err, incomingMessage, responseBody) {
-      if(err) {
-        console.log(err);
-        callback(err);
-     // } else if (responseBody.code = '500 Internal Server Error') { New KEY needed
-      } else {
-        console.log('***********', responseBody.businesses[1]);
-        //callback(null, responseBody);
-      }
-    })
-  }
-
-
-  test('starbucks');
+// getToken();
+// test('starbucks');
 
 module.exports = {
 
@@ -51,13 +33,13 @@ module.exports = {
     }, (err, incomingMessage, responseBody) => {
         if (err) {
          return err;
-      } else if (incomingMessage.statusCode == 400) {
-         callback(new Error("the API Key you are using is invalid"));
+      } else if (incomingMessage.statusCode === 400) {
+         return new Error("the Google API Key you are using is invalid"));
       } else {
         return responseBody;
       }
     })
-  },
+  };
 
   getMovies: function(options, cb) {
     request.get({
@@ -70,7 +52,7 @@ module.exports = {
       return responseBody;
       }
     })
-  },
+  };
 
   getEat: function(options, cb) {
     request.get({
@@ -85,11 +67,20 @@ module.exports = {
         return responseBody;
       }
     })
+  };
+
+  getBuy: function(options, cb) {
+    request.get(url: buyRoot + "query=" + options,
+      function (err, incomingMessage, responseBody) {
+      if(err) {
+        return err;
+      } else if (incomingMessage.statusCode === 403) {
+        return new Error("the Walmart API Key you are using is invalid");
+      } else {
+       return responseBody
+      }
+    })
   }
-
-
- //getBuy:
-
 }
 
 
@@ -137,3 +128,21 @@ module.exports = {
 // console.log(data)
 // })
 // }
+
+
+// var test = function(options, cb) {
+//     request.get({
+//       url: doRoot + options,
+//       headers:{"authorization": "Bearer o7xlBlQDVwvkdIqjZFlAJFAICXXKwm0g8yNBJMW4-sXZx0VMcwdnL4TLE9n6JwmROnEZ2KsAen4K_Oh749j3EhxRumkhws_faXlVVeUdsMFy4yLEdq9gmuTO41_sV3Yx"},
+//       json: true
+//     },
+//       function (err, incomingMessage, responseBody) {
+//       if(err) {
+//         console.log(err);
+//         callback(err);
+//      // } else if (responseBody.code = '500 Internal Server Error') { New KEY needed
+//       } else {
+//         console.log('***********', responseBody.businesses[1]);
+//       }
+//     })
+//   }
