@@ -2,16 +2,12 @@
 <!-- MOCK UP #2 -->
 <!-- SEARCH BAR and not much else -->
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <% include ../views/partials/head %>
-  </head>
-  <body>
-    <% include ../views/partials/header %>
+<% include ../views/partials/head %>
 
 <div class="outerbody">
-  <div class="search">
+
+  <div class="searchdiv">
+    <form action="/" method="GET">
       <fieldset class="large-2 columns">
         <select class="options">
           <option value="eat" id="eat">I want to eat at:</option>
@@ -21,12 +17,14 @@
         </select>
       </fieldset>
       <fieldset class="large-10 columns">
-        <div class="input-group">
-          <input class="input-group-field" type="text">
-          <a class="input-group-button button" id="submit">Submit</a>
+        <div class="searchbar">
+          <input id="search" type="text" name="userinput">
+          <input id="submit" type="submit" value="Submit">
         </div>
       </fieldset>
+    </form>
   </div>
+
 </div>
 
   </body>
