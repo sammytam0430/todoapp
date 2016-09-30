@@ -1,14 +1,17 @@
 $font-stack:    Helvetica, sans-serif;
 /*$primary-text:*/
-$bg-color: #A1D490;
+$bg-color: #F5E1D0;
 
 
 html {
   box-sizing: border-box;
+  display: inline-block;
+  background-color: $bg-color;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
+  /*display: flex;*/
 }
 
 .outerbody {
@@ -16,6 +19,16 @@ html {
   background-color: $bg-color;
   display: flex;
   justify-content: center;
+}
+
+.body {
+}
+
+#todocontainer {
+  max-width: none;
+  background-color: $bg-color;
+  height: 100%;
+
 }
 
 

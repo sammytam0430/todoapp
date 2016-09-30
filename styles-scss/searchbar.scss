@@ -1,35 +1,32 @@
 $font-stack:    Helvetica, sans-serif;
-/*$primary-text:*/
 $bg-color: #A1D490;
 
 @mixin margin($marginvalue:50px) {
   margin: $marginvalue;
 }
 
-  .searchdiv {
-    background-color: white;
-    height: 150px;
-    width: 75%;
-    align-self: center;
-    @include margin(0 15% 0 15%);
-    border-radius: 10px;
-/*    display: flex;
-    align-items: center;*/
+.searchdiv {
+  background-color: white;
+  height: 150px;
+  width: 75%;
+  align-self: center;
+  @include margin(0 15% 0 15%);
+  border-radius: 10px;
 
     .options {
       margin-top: 50px;
-      width: 120%;
+      width: 110%;
     }
 
     #search {
-      width: 50%;
+      width: 75%;
       @include margin;
       display: inline-block;
-
-      .submit {
-        @include margin;
-      }
     }
-  }
+
+    .submit {
+      @include margin;
+    }
+}
 
 
