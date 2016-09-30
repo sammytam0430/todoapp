@@ -2,10 +2,10 @@
 module.exports = {
   insertItems: function() {
     knex('items').insert([{
-    name: /*items input*/,
+    name: /*search input value*/,
     status: false,
     user_id: knex.select().from('users')
-      .where('users.name', '=', /*user name input*/)
+      .where('users.name', '=', /*user name input value*/)
       .asCallback(function(err, result) {
         if (err) {
           console.error(err);
