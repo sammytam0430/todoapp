@@ -1,3 +1,4 @@
 node_modules/
 .env
-
+.sass-cache/
+.DS_Store
