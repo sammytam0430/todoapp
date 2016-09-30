@@ -11,6 +11,8 @@ const knex = require('knex')({
   }
 });
 
+var api = require('./public/scripts/apiModules.js')
+
 const express     = require("express");
 const app         = express();
 app.use(express.static('public'));
@@ -27,6 +29,20 @@ app.use(methodOverride('_method'))
 app.get('/', (req, res) => {
   res.render('user_todo');
 });
+
+app.post('/search', (req, res) => {
+  console.log(req);
+ api.getMovies('braveheart', function(movieInfo){
+      title = movieInfo.Title;
+      genre = movieInfo.Genre;
+      runTime = movieInfo.runTime;
+      imdbRating = movieInfo.imdbRating;
+      actors = movieInfo.Actors;
+      plot = movieInfo.Plot;
+      console.log(title, genre, runTime, imdbRating, plot, actors);
+      })
+});
+
 
 app.get('/search', (req, res) => {
   res.render('main_search');
