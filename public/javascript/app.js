@@ -2,7 +2,7 @@ $(document).ready(function() {
 $(document).foundation()
 
 $(function(){
-    $("#submitbuy, submiteat, submitread, submitwatch").click(function(event) {
+    $("#submitbuy, #submiteat, #submitread, #submitwatch").click(function(event) {
         $(this).next('.togglecontainer').slideToggle();
     });
 });
