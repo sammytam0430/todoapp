@@ -17,6 +17,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const bodyParser  = require("body-parser");
 app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 const PORT = process.env.PORT || 8080;
 const connect        = require('connect')
 const methodOverride = require('method-override')
