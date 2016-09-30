@@ -1,0 +1,24 @@
+$font-stack:    Helvetica, sans-serif;
+/*$primary-text:*/
+$bg-color: #A1D490;
+
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.outerbody {
+  height: 100%;
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
