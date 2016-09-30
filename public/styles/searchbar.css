@@ -1,17 +1,21 @@
 /*$primary-text:*/
-.search {
+.searchdiv {
   background-color: white;
   height: 150px;
+  width: 75%;
   align-self: center;
   margin: 0 15% 0 15%;
-  border-radius: 10px; }
-  .search .options {
+  border-radius: 10px;
+  /*    display: flex;
+      align-items: center;*/ }
+  .searchdiv .options {
     margin-top: 50px;
-    width: 115%; }
-  .search .input-group-field {
-    margin-top: 50px; }
-
-#submit {
-  margin-top: 50px; }
+    width: 120%; }
+  .searchdiv #search {
+    width: 50%;
+    margin: 50px;
+    display: inline-block; }
+    .searchdiv #search .submit {
+      margin: 50px; }
 
 /*# sourceMappingURL=searchbar.css.map */
