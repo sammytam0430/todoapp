@@ -5,9 +5,8 @@ const mdRoot = "http://www.omdbapi.com/?y=&plot=full&type=movie&r=json&t="
 const eatRoot = "https://api.yelp.com/v3/businesses/search?location=vancouver+canada&term="
 const buyRoot = "http://api.walmartlabs.com/v1/search?apiKey=" + process.env.WALMART_KEY
 
-module.exports = {
-//POST request to Get OAUTH token from YELP
-  getToken: function(cb) {
+$(function() {
+   function getToken(cb) {
   request.post({
   url: "https://api.yelp.com/oauth2/token",
   form: {
@@ -23,7 +22,7 @@ module.exports = {
   })
 };
 
-  getBooks: function(options, cb) {
+  function getBooks(options, cb) {
     request.get({
       url: gooRoot + options + '&key=' + process.env.GOOGLE_KEY,
       json:true
@@ -36,9 +35,9 @@ module.exports = {
         cb(esponseBody);
       }
     })
-  },
+  };
 
-  getMovies: function(options, cb) {
+function getMovies(options, cb) {
     request.get({
       url: mdRoot + options,
       json: true
@@ -49,9 +48,9 @@ module.exports = {
       cb(responseBody);
       }
     })
-  },
+  };
 
-  getEat: function(options, cb) {
+  function getEat(options, cb) {
     request.get({
       url: eatRoot + options,
       headers:{"authorization": token},
@@ -64,9 +63,9 @@ module.exports = {
         cb(responseBody);
       }
     })
-  },
+  };
 
-  getBuy: function(options, cb) {
+  function getBuy(options, cb) {
     request.get(buyRoot + "query=" + options,
       function (err, incomingMessage, responseBody) {
       if(err) {
@@ -77,6 +76,64 @@ module.exports = {
        cb(responseBody);
       }
     })
-  }
-};
+  };
 
+  $('.submit').submit(function(e){
+    options = $(this).closest('textarea').val().split(" ").join("+");
+    console.log(options);
+    if($(this).closest('#options').val() == "watch"){
+      api.getMovies(options, function(movieInfo){
+      title = movieInfo.Title;
+      genre = movieInfo.Genre;
+      runTime = movieInfo.runTime;
+      imdbRating = movieInfo.imdbRating;
+      actors = movieInfo.Actors;
+      plot = movieInfo.Plot;
+      console.log(title, genre, runTime, imdbRating, plot, actors);
+      })
+    }
+  })
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//     if($(this).closest(#options).val() == "eat") {
+//       getToken(function(token){
+//         getEat(options, token, function(eatery){
+//           let restOne = eatery.businesses[0]
+//           add = restOne.address
+
+//           ;
+//         })
+//      })
+//     }
+//   }
+// });
+
+
+// $(this).closest(#options).val()
+
+
+// if( === eat) {
+//   function run() {
+//     getToken(function(token){
+//       getEat(options, token, function(eatery){
+//         return eatery
+//       })
+//     })
+//   }
+// }
