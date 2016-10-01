@@ -31,15 +31,14 @@ app.get('/', (req, res) => {
   res.render('user_todo');
 });
 
-app.post('/search', (req, res) => {
-
+app.post('/search/result', (req, res) => {
   console.log(req.body.type);
   console.log(req.body.userinput);
    taskType = req.body.type;
   var userTask = req.body.userinput.split(" ").join("+");
 ///IF?
   if(taskType === "watch") {
-    api.getTitles(userTask, (titleInfo) => {
+    api.getTitles(userTask, (titles) => {
       var taskPromises = [];
       titleInfo.forEach(function(title) {
         var p = new Promise((resolve, reject) => {
@@ -51,18 +50,16 @@ app.post('/search', (req, res) => {
             taskObject.rating = movieInfo.imdbRating;
             taskObject.persons = movieInfo.Actors;
             taskObject.desc = movieInfo.Plot;
-            //console.log(taskObject);
             resolve(taskObject);
           });
-        taskPromises.push(p)
-        console.log(taskPromises);
         });
+        taskPromises.push(p);
         console.log(taskPromises);
       });
       Promise.all(taskPromises).then((taskObjects) => {
-        console.log(taskObjects);
-      //app.render('/main_search', {table: taskObjects})
+      app.render('/search_result', {table: taskObjects})
       });
+
     });
   };
   ///IF?
@@ -95,14 +92,13 @@ app.post('/search', (req, res) => {
           eat = eatInfo.businesses[i];
           taskObject.name = eat.name;
           taskObject.rating = eat.rating;
-          taskObject.address = eat.location.address1 + ", " + eat.location.city;
+          taskObject.desc = eat.location.address1 + ", " + eat.location.city;
           taskObject.price = eat.price;
           taskObject.img = eat.img_url;
           taskObjects.push(taskObject);
           console.log(taskObject);
         };
-      console.log(taskObjects);
-      //app.render('/main_search', taskObject)
+      app.render('/main_search', taskObject)
       });
     });
   }
