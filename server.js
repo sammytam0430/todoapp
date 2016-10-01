@@ -40,7 +40,7 @@ app.post('/search/result', (req, res) => {
   if(taskType === "watch") {
     api.getTitles(userTask, (titles) => {
       var taskPromises = [];
-      titleInfo.forEach(function(title) {
+      titles.forEach(function(title) {
         var p = new Promise((resolve, reject) => {
           api.getMovie(title, (movieInfo) => {
             var taskObject = {};
