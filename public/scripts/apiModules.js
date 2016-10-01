@@ -75,7 +75,6 @@ module.exports = {
       json: true
     },
       function (err, incomingMessage, responseBody) {
-        console.log(eatRoot+options);
       if(err) {
         return err;
       } else {

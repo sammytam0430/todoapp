@@ -52,8 +52,7 @@ app.post('/search', (req, res) => {
             //console.log(taskObject);
             resolve(taskObject);
           });
-        taskPromises.push(p)
-        console.log(taskPromises);
+        taskPromises.push(p);
         });
         console.log(taskPromises);
       });
@@ -79,7 +78,7 @@ app.post('/search', (req, res) => {
         taskObjects.push(taskObject);
      };
      console.log(taskObjects);
-      // app.render('/main_search', taskObject)
+     app.render('/main_search', {taskObjects: taskObjects})
     })
   };
   ///IF?
