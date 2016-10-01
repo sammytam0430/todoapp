@@ -55,7 +55,7 @@ app.post('/search/result', (req, res) => {
         console.log(taskPromises);
       });
       Promise.all(taskPromises).then((taskObjects) => {
-      res.render('/search_result', {taskObjects: taskObjects})
+      res.render('search_result', {taskObjects: taskObjects})
       });
 
     });
@@ -82,7 +82,7 @@ app.post('/search/result', (req, res) => {
         taskObjects.push(taskObject);
      };
      console.log(taskObjects);
-     res.render('/main_search', {taskObjects: taskObjects});
+     res.render('search_result', {taskObjects: taskObjects});
     })
   };
   ///IF?
@@ -109,7 +109,7 @@ app.post('/search/result', (req, res) => {
           taskObjects.push(taskObject);
         };
         console.log(taskObjects);
-        res.render('main_search', {taskObjects: taskObjects});
+        res.render('search_result', {taskObjects: taskObjects});
       });
     });
   };
@@ -134,15 +134,15 @@ app.post('/search/result', (req, res) => {
         taskObject.rating = buy.customerRating;
         taskObjects.push(taskObject);
       };
-    res.render('/search_result', {taskObjects: taskObjects})
+    res.render('search_result', {taskObjects: taskObjects})
   })
 }
 });
 
-app.post('' , (req, res) => {
+// app.post('' , (req, res) => {
 
 
-});
+// });
 
 app.get('/search', (req, res) => {
   res.render('main_search');
