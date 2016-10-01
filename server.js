@@ -129,8 +129,9 @@ app.post('/search/result', (req, res) => {
         taskObjects.push(taskObject);
       };
     res.render('search_result', {taskObjects: taskObjects})
-  })
-}
+   })
+  }
+
 });
 
 
