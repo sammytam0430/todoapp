@@ -21,7 +21,7 @@ module.exports = {
     yelpToken = 'Bearer ' + body.access_token;
     cb(yelpToken);
   })
-};
+},
 
   getBooks: function(options, cb) {
     request.get({

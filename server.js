@@ -11,7 +11,7 @@ const knex = require('knex')({
   }
 });
 
-var api = require('./public/scripts/apiModules.js')
+var api = require('./apiModules.js')
 
 const express     = require("express");
 const app         = express();
@@ -35,7 +35,7 @@ app.post('/search', (req, res) => {
   console.log(req.body.userinput);
    taskObject = {}
    taskType = req.body.type;
-  let userTask = req.body.userinput.split(" ").join("+");
+  var userTask = req.body.userinput.split(" ").join("+");
 ///IF?
   if(taskType === "watch") {
     api.getMovies(userTask, (movieInfo) => {

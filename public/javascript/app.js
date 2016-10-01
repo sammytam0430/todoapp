@@ -1,8 +1,7 @@
 $(document).ready(function() {
 $(document).foundation()
 
-$(function(){
-    $("#submitbuy, #submiteat, #submitread, #submitwatch").click(function(event) {
+    $("#buy, #eat, #read, #watch").click(function(event) {
         $(this).next('.togglecontainer').slideToggle();
     });
 });
@@ -16,5 +15,4 @@ $(function(){
 //   hiddenBox.show();
 // });
 
-})
   // console.log("hello");
