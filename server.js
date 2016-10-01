@@ -45,11 +45,9 @@ app.post('/search/result', (req, res) => {
           api.getMovie(title, (movieInfo) => {
             var taskObject = {};
             taskObject.name = movieInfo.Title;
-            taskObject.genre = movieInfo.Genre;
-            taskObject.runTime = movieInfo.runTime;
             taskObject.rating = movieInfo.imdbRating;
             taskObject.persons = movieInfo.Actors;
-            taskObject.desc = movieInfo.Plot;
+            taskObject.desc = movieInfo.Actors + ', ' + movieInfo.Genre + '\n' + movieInfo.Plot + '\n' + movieInfo.Runtime;
             resolve(taskObject);
           });
         });
@@ -57,7 +55,7 @@ app.post('/search/result', (req, res) => {
         console.log(taskPromises);
       });
       Promise.all(taskPromises).then((taskObjects) => {
-      app.render('/search_result', {table: taskObjects})
+      res.render('/search_result', {taskObjects: taskObjects})
       });
 
     });
@@ -66,47 +64,65 @@ app.post('/search/result', (req, res) => {
   if(taskType === "read") {
     api.getBooks(req.body.userinput, (bookInfo) => {
       var taskObjects = [];
-      for (var i = 0; i < 10; i++) {
-        var taskObject = {};
-        book = bookInfo.items[i]
-        taskObject.name = book.volumeInfo.title
-        taskObject.persons = book.volumeInfo.authors
-        taskObject.desc = book.volumeInfo.description
-        taskObject.date = book.volumeInfo.publishedDate
-        taskObject.rating = book.averageRating
-        //taskObject.img = book.imageLinks.thumbnail
+      for (let i = 0; i < 10; i++) {
+        let taskObject = {};
+        debugger;
+        book = bookInfo.items[i].volumeInfo;
+        taskObject.name = book.title
+        taskObject.desc = book.authors + '\n' + book.description;
+        taskObject.date = book.publishedDate;
+        taskObject.rating = book.averageRating;
+        if(i=8){console.log(book)};
+        if(book.imageLinks.thumbnail) {
+         taskObject.img = book.imageLinks.thumbnail;
+        } else {
+         taskObject.img = "../images/shia.jpg";
+        }
+        book.imageLinks.thumbnail;
         taskObjects.push(taskObject);
      };
-     // console.log(taskObjects);
-      res.render('search_result', {taskObjects: taskObjects})
+     console.log(taskObjects);
+     res.render('/main_search', {taskObjects: taskObjects});
     })
   };
   ///IF?
   if(taskType === "eat") {
-    api.getToken(function(yelpToken) {
+    api.getToken((yelpToken) => {
+      debugger;
       api.getEat(userTask, yelpToken, (eatInfo) => {
-        debugger;
+       let numRest = function() {
+          if (eatInfo.businesses.length < 10) {
+            return eatInfo.businesses.length;
+          } else { return 10; }
+        };
         var taskObjects = [];
-         for (var i = 0; i < 10; i++) {
-          taskObject = {};
+        for (let i = 0; i < numRest(); i++) {
+          let taskObject = {};
+          console.log(eatInfo.businesses[0])
           eat = eatInfo.businesses[i];
           taskObject.name = eat.name;
           taskObject.rating = eat.rating;
-          taskObject.desc = eat.location.address1 + ", " + eat.location.city;
+          taskObject.desc = eat.location.address1 + ", " + eat.location.city + '\nCuisine: '
+          + eat.categories[0].title + '\nContact number: ' + eat.phone;
           taskObject.price = eat.price;
-          taskObject.img = eat.img_url;
+          taskObject.img = eat.image_url;
           taskObjects.push(taskObject);
-          console.log(taskObject);
         };
-      app.render('/main_search', taskObject)
+        console.log(taskObjects);
+        res.render('main_search', {taskObjects: taskObjects});
       });
     });
-  }
+  };
   ///IF??
   if(taskType === "buy") {
     api.getBuy(userTask, function(buyInfo) {
+     let numItems = function(){
+        if(buyInfo.items.length < 10) {
+          return buyInfo.items.length;
+        } else { 10 }
+      };
       var taskObjects = [];
-      for (var i = 0; i < 10; i++) {
+      for (let i = 0; i < numItems() ; i++) {
         taskObject = {};
         buy = buyInfo.items[i];
         taskObject.name = buy.name;
@@ -118,16 +134,15 @@ app.post('/search/result', (req, res) => {
         taskObject.rating = buy.customerRating;
         taskObjects.push(taskObject);
       };
-    console.log(taskObjects);
-    //app.render('/search_result', taskObject)
+    res.render('/search_result', {taskObjects: taskObjects})
   })
 }
 });
 
-// app.post('' , (req, res) => {
+app.post('' , (req, res) => {
 
 
-// });
+});
 
 app.get('/search', (req, res) => {
   res.render('main_search');

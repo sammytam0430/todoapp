@@ -61,9 +61,9 @@ module.exports = {
       titles = []
       responseBody.Search.forEach((item) => {
         title = item.Title.split(" ").join("+");
-        titles.push(title)
+        titles.push(title);
       })
-    } cb(titles)
+    } cb(titles);
    })
   },
 
