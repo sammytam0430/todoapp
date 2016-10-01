@@ -34,37 +34,50 @@ app.get('/', (req, res) => {
 app.post('/search', (req, res) => {
   console.log(req.body.type);
   console.log(req.body.userinput);
-   taskObject = {}
    taskType = req.body.type;
   let userTask = req.body.userinput.split(" ").join("+");
 ///IF?
   if(taskType === "watch") {
-    api.getMovies(userTask, (movieInfo) => {
-       taskObject.name = movieInfo.Title;
-       taskObject.genre = movieInfo.Genre;
-       taskObject.runTime = movieInfo.runTime;
-       taskObject.rating = movieInfo.imdbRating;
-       taskObject.persons = movieInfo.Actors;
-       taskObject.desc = movieInfo.Plot;
-      app.render('/main_search', taskObject)
-      })
+    api.getTitles(userTask, (titleInfo) => {
+      var taskObjects = [];
+      titleInfo.forEach(function(title) {
+        api.getMovie(title, (movieInfo) => {
+        debugger;
+         let taskObject = {};
+         taskObject.name = movieInfo.Title;
+         taskObject.genre = movieInfo.Genre;
+         taskObject.runTime = movieInfo.runTime;
+         taskObject.rating = movieInfo.imdbRating;
+         taskObject.persons = movieInfo.Actors;
+         taskObject.desc = movieInfo.Plot;
+         taskObjects.push(taskObject);
+        //app.render('/main_search', {table: taskObjects})
+        });
+      });
+    });
    };
   ///IF?
   if(taskType === "read") {
     api.getBooks(userTask, (bookInfo) => {
-      bookInfo = bookInfo.items[0];
-       taskObject.name = bookInfo.volumeInfo.title
-       taskObject.persons = bookInfo.volumeInfo.authors
-       taskObject.desc = bookInfo.volumeInfo.description
-       taskObject.date = bookInfo.volumeInfo.publishedDate
-       taskObject.rating = bookInfo.averageRating
-       taskObject.img = bookInfo.imageLinks.thumbnail
-       app.render('/main_search', taskObject)    })
+      var taskObjects = []
+      for (let i = 0; i < 10; i++) {
+       let taskObject = {}
+       book = bookInfo.items[i]
+       taskObject.name = book.volumeInfo.title
+       taskObject.persons = book.volumeInfo.authors
+       taskObject.desc = book.volumeInfo.description
+       taskObject.date = book.volumeInfo.publishedDate
+       taskObject.rating = book.averageRating
+       taskObject.img = book.imageLinks.thumbnail
+       taskObjects.push(taskObject);
+     };
+    console.log(taskObjects);
+      // app.render('/main_search', taskObject)
+     })
   };
   ///IF?
   if(taskType === "eat") {
     api.getToken(function(yelpToken) {
-      debugger;
       api.getEat(userTask, yelpToken, (eatInfo) => {
         eatInfo = eatInfo.businesses[0];
          taskObject.name = eatInfo.name;
