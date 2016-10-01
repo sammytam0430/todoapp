@@ -11,7 +11,7 @@ const knex = require('knex')({
   }
 });
 
-var api = require('./apiModules.js')
+var api = require('./public/scripts/apiModules.js')
 
 const express     = require("express");
 const app         = express();
@@ -32,6 +32,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/search', (req, res) => {
+
   console.log(req.body.type);
   console.log(req.body.userinput);
    taskType = req.body.type;
@@ -41,9 +42,9 @@ app.post('/search', (req, res) => {
     api.getTitles(userTask, (titleInfo) => {
       var taskPromises = [];
       titleInfo.forEach(function(title) {
-        let p = new Promise((resolve, reject) => {
+        var p = new Promise((resolve, reject) => {
           api.getMovie(title, (movieInfo) => {
-            let taskObject = {};
+            var taskObject = {};
             taskObject.name = movieInfo.Title;
             taskObject.genre = movieInfo.Genre;
             taskObject.runTime = movieInfo.runTime;
@@ -68,8 +69,8 @@ app.post('/search', (req, res) => {
   if(taskType === "read") {
     api.getBooks(req.body.userinput, (bookInfo) => {
       var taskObjects = [];
-      for (let i = 0; i < 10; i++) {
-        let taskObject = {};
+      for (var i = 0; i < 10; i++) {
+        var taskObject = {};
         book = bookInfo.items[i]
         taskObject.name = book.volumeInfo.title
         taskObject.persons = book.volumeInfo.authors
@@ -79,8 +80,8 @@ app.post('/search', (req, res) => {
         //taskObject.img = book.imageLinks.thumbnail
         taskObjects.push(taskObject);
      };
-     console.log(taskObjects);
-      // app.render('/main_search', taskObject)
+     // console.log(taskObjects);
+      res.render('search_result', {taskObjects: taskObjects})
     })
   };
   ///IF?
@@ -89,7 +90,7 @@ app.post('/search', (req, res) => {
       api.getEat(userTask, yelpToken, (eatInfo) => {
         debugger;
         var taskObjects = [];
-         for (let i = 0; i < 10; i++) {
+         for (var i = 0; i < 10; i++) {
           taskObject = {};
           eat = eatInfo.businesses[i];
           taskObject.name = eat.name;
@@ -109,7 +110,7 @@ app.post('/search', (req, res) => {
   if(taskType === "buy") {
     api.getBuy(userTask, function(buyInfo) {
       var taskObjects = [];
-      for (let i = 0; i < 10; i++) {
+      for (var i = 0; i < 10; i++) {
         taskObject = {};
         buy = buyInfo.items[i];
         taskObject.name = buy.name;
@@ -127,10 +128,10 @@ app.post('/search', (req, res) => {
 }
 });
 
-app.post('' , (req, res) => {
+// app.post('' , (req, res) => {
 
 
-});
+// });
 
 app.get('/search', (req, res) => {
   res.render('main_search');

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 // $(document).foundation()
 
-const show = require('../lib/select');
+// const show = require('../lib/select');
 
 $("#buy, #eat, #read, #watch").click(function(event) {
   $(this).next('.togglecontainer').slideToggle();
@@ -34,17 +34,17 @@ function newToDo(item_name, item_category, html_block, status) {
   };
 
 
-  $("form").on("submit", function (event) {
-    event.preventDefault();
-    var tweet = $(this).serialize();
-    $.ajax( {
-      url: '/tweets',
-      method: 'POST',
-      data: tweet,
-      dataType: 'json',
-      success: function() {
-         $('#tweetcontai').append(newToDo(cb));
-      }
-    });
-  });
+  // $("").on("submit", function (event) {
+  //   event.preventDefault();
+  //   var tweet = $(this).serialize();
+  //   $.ajax( {
+  //     url: '/search_result',
+  //     method: 'GET',
+  //     data: taskObject,
+  //     dataType: 'json',
+  //     success: function() {
+  //        $('#tweetcontai').append(newToDo(cb));
+  //     }
+  //   });
+  // });
 });

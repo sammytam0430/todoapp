@@ -4,7 +4,34 @@
 
 <% include ../views/partials/head %>
 
-<% include ../views/partials/searchbar %>
+<head>
+<script type="text/javascript" src="./javascript/app.js"></script>
+<script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
+</head>
+
+<div class="outerbody">
+  <div class="searchdiv">
+    <form action="/search" method="POST">
+      <div class="row">
+      <fieldset class="large-2 columns">
+        <select class="options" name="type">
+          <option value="eat" id="eat">I want to eat at:</option>
+          <option value="read" id="read">I want to read:</option>
+          <option value="watch" id="watch">I want to watch:</option>
+          <option value="buy" id="buy">I want to buy:</option>
+        </select>
+      </fieldset>
+      <fieldset class="large-10 columns">
+        <div class="searchbar">
+          <input id="search" type="text" name="userinput">
+          <input id="submit" type="submit" value="Submit">
+        </div>
+      </fieldset>
+      </div>
+    </form>
+  </div>
+
+</div>
 
   </body>
 </html>
