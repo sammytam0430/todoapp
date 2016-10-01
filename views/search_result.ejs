@@ -1,10 +1,13 @@
 
 <% include ../views/partials/head %>
 
-<div id="searchresultcontainer">
+<!-- <script type="text/javascript" src="./javascript/app.js"></script>
+<script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script> -->
+
+<div class="row" id="todocontainer">
 <% for(key in taskObjects){ %>
 
-  <main class="large 1 column">
+  <div class="small-2 large-4 columns">
     <ul class="listcontainer">
      <div class="namecontainer">
        <h2><%=taskObjects[key].name%></h2>
@@ -12,7 +15,7 @@
          <div class="togglecontainer">
            <li>
              <div class="item-content">
-               <img src="<%=taskObjects[key].img%>"/>
+               <img src="<%=taskObjects.img%>"/>
                <div class="synopsis" id="scrollContainer"><%=taskObjects[key].desc%>
                </div>
                <p class="rating"><%=taskObjects[key].rating%></p>
@@ -27,6 +30,7 @@
          </ul>
      </div>
       <% } %>
-</main>
+</div>
 
+</body>
 </html>
