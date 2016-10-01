@@ -38,70 +38,90 @@ app.post('/search', (req, res) => {
 ///IF?
   if(taskType === "watch") {
     api.getTitles(userTask, (titleInfo) => {
-      var taskObjects = [];
+      var taskPromises = [];
       titleInfo.forEach(function(title) {
-        api.getMovie(title, (movieInfo) => {
-        debugger;
-         let taskObject = {};
-         taskObject.name = movieInfo.Title;
-         taskObject.genre = movieInfo.Genre;
-         taskObject.runTime = movieInfo.runTime;
-         taskObject.rating = movieInfo.imdbRating;
-         taskObject.persons = movieInfo.Actors;
-         taskObject.desc = movieInfo.Plot;
-         taskObjects.push(taskObject);
-        //app.render('/main_search', {table: taskObjects})
+        let p = new Promise((resolve, reject) => {
+          api.getMovie(title, (movieInfo) => {
+            let taskObject = {};
+            taskObject.name = movieInfo.Title;
+            taskObject.genre = movieInfo.Genre;
+            taskObject.runTime = movieInfo.runTime;
+            taskObject.rating = movieInfo.imdbRating;
+            taskObject.persons = movieInfo.Actors;
+            taskObject.desc = movieInfo.Plot;
+            //console.log(taskObject);
+            resolve(taskObject);
+          });
+        taskPromises.push(p)
+        console.log(taskPromises);
         });
+        console.log(taskPromises);
+      });
+      Promise.all(taskPromises).then((taskObjects) => {
+        console.log(taskObjects);
+      //app.render('/main_search', {table: taskObjects})
       });
     });
-   };
+  };
   ///IF?
   if(taskType === "read") {
-    api.getBooks(userTask, (bookInfo) => {
-      var taskObjects = []
+    api.getBooks(req.body.userinput, (bookInfo) => {
+      var taskObjects = [];
       for (let i = 0; i < 10; i++) {
-       let taskObject = {}
-       book = bookInfo.items[i]
-       taskObject.name = book.volumeInfo.title
-       taskObject.persons = book.volumeInfo.authors
-       taskObject.desc = book.volumeInfo.description
-       taskObject.date = book.volumeInfo.publishedDate
-       taskObject.rating = book.averageRating
-       taskObject.img = book.imageLinks.thumbnail
-       taskObjects.push(taskObject);
+        let taskObject = {};
+        book = bookInfo.items[i]
+        taskObject.name = book.volumeInfo.title
+        taskObject.persons = book.volumeInfo.authors
+        taskObject.desc = book.volumeInfo.description
+        taskObject.date = book.volumeInfo.publishedDate
+        taskObject.rating = book.averageRating
+        //taskObject.img = book.imageLinks.thumbnail
+        taskObjects.push(taskObject);
      };
-    console.log(taskObjects);
+     console.log(taskObjects);
       // app.render('/main_search', taskObject)
-     })
+    })
   };
   ///IF?
   if(taskType === "eat") {
     api.getToken(function(yelpToken) {
       api.getEat(userTask, yelpToken, (eatInfo) => {
-        eatInfo = eatInfo.businesses[0];
-         taskObject.name = eatInfo.name;
-         taskObject.rating = eatInfo.rating;
-         taskObject.address = eatInfo.location.address1 + ", " + eatInfo.location.city;
-         taskObject.price = eatInfo.price;
-         taskObject.img = eatInfo.img_url
-
-        console.log(taskObject);
-        app.render('/main_search', taskObject)
+        debugger;
+        var taskObjects = [];
+         for (let i = 0; i < 10; i++) {
+          taskObject = {};
+          eat = eatInfo.businesses[i];
+          taskObject.name = eat.name;
+          taskObject.rating = eat.rating;
+          taskObject.address = eat.location.address1 + ", " + eat.location.city;
+          taskObject.price = eat.price;
+          taskObject.img = eat.img_url;
+          taskObjects.push(taskObject);
+          console.log(taskObject);
+        };
+      console.log(taskObjects);
+      //app.render('/main_search', taskObject)
       });
     });
-  };
+  }
   ///IF??
   if(taskType === "buy") {
     api.getBuy(userTask, function(buyInfo) {
-       buyInfo = buyInfo.items[0];
-       taskObject.name = buyInfo.name;
-       if(buyInfo.salePrice){taskObject.price = buyInfo.salePrice}
-       else(taskObject.price = buyInfo.mrsp)
-        if(buyInfo.shortDescription){taskObject.desc = buyInfo.shortDescription}
-       else(taskObject.desc = buyInfo.longDescription)
-       taskObject.img = buyInfo.thumbnailImage
-      taskObject.rating = buyInfo.customerRating
-      app.render('/search_result', taskObject)
+      var taskObjects = [];
+      for (let i = 0; i < 10; i++) {
+        taskObject = {};
+        buy = buyInfo.items[i];
+        taskObject.name = buy.name;
+        if(buy.salePrice) {taskObject.price = buy.salePrice}
+        else(taskObject.price = buy.mrsp)
+        if(buy.shortDescription){taskObject.desc = buy.shortDescription}
+        else(taskObject.desc = buy.longDescription)
+        taskObject.img = buy.thumbnailImage;
+        taskObject.rating = buy.customerRating;
+        taskObjects.push(taskObject);
+      };
+    console.log(taskObjects);
+    //app.render('/search_result', taskObject)
   })
 }
 });
