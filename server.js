@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 app.post('/search/result', (req, res) => {
   console.log(req.body.type);
   console.log(req.body.userinput);
-   taskType = req.body.type;
+  var taskType = req.body.type;
   var userTask = req.body.userinput.split(" ").join("+");
 ///IF?
   if(taskType === "watch") {
@@ -47,7 +47,8 @@ app.post('/search/result', (req, res) => {
             taskObject.name = movieInfo.Title;
             taskObject.rating = movieInfo.imdbRating;
             taskObject.desc = movieInfo.Actors + ', ' + movieInfo.Genre + '\n' + movieInfo.Plot + '\n' + movieInfo.Runtime;
-            taskObject.img = movieInfo.Poster
+            taskObject.img = movieInfo.Poster;
+            taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
             resolve(taskObject);
           });
         });
@@ -76,7 +77,9 @@ app.post('/search/result', (req, res) => {
         } else {
          taskObject.img = "../images/shia.jpg";
         }
+        taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
         taskObjects.push(taskObject);
+
      };
      res.render('search_result', {taskObjects: taskObjects});
     })
@@ -101,6 +104,7 @@ app.post('/search/result', (req, res) => {
           taskObject.desc = eat.location.address1 + ", " + eat.location.city + '\nCuisine: '
           + eat.categories[0].title + '\nContact number: ' + eat.phone + '\nPrice Level: ' + eat.price
           taskObject.img = eat.image_url;
+          taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
           taskObjects.push(taskObject);
         };
         console.log(taskObjects);
@@ -111,14 +115,15 @@ app.post('/search/result', (req, res) => {
   ///IF??
   if(taskType === "buy") {
     api.getBuy(userTask, function(buyInfo) {
-     let numItems = function(){
+     let numItems = function() {
         if(buyInfo.items.length < 10) {
           return buyInfo.items.length;
-        } else { 10 }
+        } else { return 10; }
       };
+      debugger;
       var taskObjects = [];
-      for (let i = 0; i < numItems() ; i++) {
-        taskObject = {};
+      for (let i = 0; i < numItems(); i++) {
+        let taskObject = {};
         buy = buyInfo.items[i];
         taskObject.name = buy.name;
         if(buy.salePrice) {price = buy.salePrice}
@@ -127,6 +132,7 @@ app.post('/search/result', (req, res) => {
         else(taskObject.desc = buy.longDescription + '/nPrice: ' + price)
         taskObject.img = buy.thumbnailImage;
         taskObject.rating = buy.customerRating;
+        taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
         taskObjects.push(taskObject);
       };
     res.render('search_result', {taskObjects: taskObjects})
