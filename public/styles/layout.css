@@ -1,15 +1,23 @@
 /*$primary-text:*/
 html {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #F5E1D0; }
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+  /*display: flex;*/ }
 
 
 .outerbody {
   height: 100%;
-  background-color: #A1D490;
+  background-color: #F5E1D0;
   display: flex;
   justify-content: center; }
+
+#todocontainer {
+  max-width: none;
+  background-color: #F5E1D0;
+  height: 100%; }
 
 /*# sourceMappingURL=layout.css.map */

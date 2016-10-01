@@ -1,6 +1,5 @@
 {
 "version": 3,
-<<<<<<< HEAD
 "mappings": "AACA,kBAAkB;AAIlB,IAAK;EACH,UAAU,EAAE,UAAU;;AAGxB,oBAAqB;EACnB,UAAU,EAAE,OAAO;;AAGrB,UAAW;EACT,MAAM,EAAE,IAAI;EACZ,gBAAgB,EAbP,OAAO;EAchB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM",
 "sources": ["../../styles-scss/layout.scss"],
 "names": [],
