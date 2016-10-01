@@ -45,8 +45,8 @@ app.post('/search/result', (req, res) => {
             let taskObject = {};
             taskObject.name = movieInfo.Title;
             taskObject.rating = movieInfo.imdbRating;
-            taskObject.persons = movieInfo.Actors;
             taskObject.desc = movieInfo.Actors + ', ' + movieInfo.Genre + '\n' + movieInfo.Plot + '\n' + movieInfo.Runtime;
+            taskObject.img = movieInfo.Poster
             resolve(taskObject);
           });
         });
@@ -54,7 +54,7 @@ app.post('/search/result', (req, res) => {
         console.log(taskPromises);
       });
       Promise.all(taskPromises).then((taskObjects) => {
-      res.render('/search_result', {taskObjects: taskObjects})
+      res.render('search_result', {taskObjects: taskObjects})
       });
 
     });
@@ -68,20 +68,16 @@ app.post('/search/result', (req, res) => {
         debugger;
         book = bookInfo.items[i].volumeInfo;
         taskObject.name = book.title
-        taskObject.desc = book.authors + '\n' + book.description;
-        taskObject.date = book.publishedDate;
+        taskObject.desc = book.authors + '\n' + book.description + '\n' + book.publishedDate;
         taskObject.rating = book.averageRating;
-        if(i=8){console.log(book)};
-        if(book.imageLinks.thumbnail) {
+        if(book.imageLinks) {
          taskObject.img = book.imageLinks.thumbnail;
         } else {
          taskObject.img = "../images/shia.jpg";
         }
-        book.imageLinks.thumbnail;
         taskObjects.push(taskObject);
      };
-     console.log(taskObjects);
-     res.render('/main_search', {taskObjects: taskObjects});
+     res.render('search_result', {taskObjects: taskObjects});
     })
   };
   ///IF?
@@ -102,13 +98,12 @@ app.post('/search/result', (req, res) => {
           taskObject.name = eat.name;
           taskObject.rating = eat.rating;
           taskObject.desc = eat.location.address1 + ", " + eat.location.city + '\nCuisine: '
-          + eat.categories[0].title + '\nContact number: ' + eat.phone;
-          taskObject.price = eat.price;
+          + eat.categories[0].title + '\nContact number: ' + eat.phone + '\nPrice Level: ' + eat.price
           taskObject.img = eat.image_url;
           taskObjects.push(taskObject);
         };
         console.log(taskObjects);
-        res.render('main_search', {taskObjects: taskObjects});
+        res.render('search_result', {taskObjects: taskObjects});
       });
     });
   };
@@ -125,23 +120,19 @@ app.post('/search/result', (req, res) => {
         taskObject = {};
         buy = buyInfo.items[i];
         taskObject.name = buy.name;
-        if(buy.salePrice) {taskObject.price = buy.salePrice}
-        else(taskObject.price = buy.mrsp)
-        if(buy.shortDescription){taskObject.desc = buy.shortDescription}
-        else(taskObject.desc = buy.longDescription)
+        if(buy.salePrice) {price = buy.salePrice}
+        else(price = buy.mrsp)
+        if(buy.shortDescription){taskObject.desc = buy.shortDescription + '/nPrice: ' + price}
+        else(taskObject.desc = buy.longDescription + '/nPrice: ' + price)
         taskObject.img = buy.thumbnailImage;
         taskObject.rating = buy.customerRating;
         taskObjects.push(taskObject);
       };
-    res.render('/search_result', {taskObjects: taskObjects})
+    res.render('search_result', {taskObjects: taskObjects})
   })
 }
 });
 
-app.post('' , (req, res) => {
-
-
-});
 
 app.get('/search', (req, res) => {
   res.render('main_search');
