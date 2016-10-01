@@ -1,5 +1,4 @@
 $font-stack:    Helvetica, sans-serif;
-/*$primary-text:*/
 $bg-color: #F5E1D0;
 
 
@@ -11,7 +10,6 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
-  /*display: flex;*/
 }
 
 .outerbody {
@@ -28,6 +26,7 @@ html {
   max-width: none;
   background-color: $bg-color;
   height: 100%;
+  padding: 25px;
 
 }
 
