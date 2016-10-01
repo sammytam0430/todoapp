@@ -5,9 +5,9 @@
 //     .then(function () {
 //       return Promise.all([
 //         // Inserts seed entries
-//         knex('users').insert({id: 1, name: 'Sammy'}),
-//         knex('users').insert({id: 2, name: 'Sarah'}),
-//         knex('users').insert({id: 3, name: 'Mitch'})
+//         knex('users').insert({user_id: 1, user_name: 'Sammy'}),
+//         knex('users').insert({user_id: 2, user_name: 'Sarah'}),
+//         knex('users').insert({user_id: 3, user_name: 'Mitch'})
 //       ]);
 //     });
 // };

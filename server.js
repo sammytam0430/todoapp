@@ -19,6 +19,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const bodyParser  = require("body-parser");
 app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 const PORT = process.env.PORT || 8080;
 const connect        = require('connect')
 const methodOverride = require('method-override')
@@ -34,15 +35,15 @@ app.post('/search/result', (req, res) => {
   console.log(req.body.type);
   console.log(req.body.userinput);
    taskType = req.body.type;
-  let userTask = req.body.userinput.split(" ").join("+");
+  var userTask = req.body.userinput.split(" ").join("+");
 ///IF?
   if(taskType === "watch") {
     api.getTitles(userTask, (titles) => {
       var taskPromises = [];
       titles.forEach(function(title) {
-        let p = new Promise((resolve, reject) => {
+        var p = new Promise((resolve, reject) => {
           api.getMovie(title, (movieInfo) => {
-            let taskObject = {};
+            var taskObject = {};
             taskObject.name = movieInfo.Title;
             taskObject.rating = movieInfo.imdbRating;
             taskObject.desc = movieInfo.Actors + ', ' + movieInfo.Genre + '\n' + movieInfo.Plot + '\n' + movieInfo.Runtime;

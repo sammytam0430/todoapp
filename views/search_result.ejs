@@ -1,13 +1,36 @@
-<!-- VIEW WHEN USER ENTERS SEARCH QUERY and HITS ENTER -->
 
-<!DOCTYPE html>
-<html lang="en">
+<% include ../views/partials/head %>
 
+<!-- <script type="text/javascript" src="./javascript/app.js"></script>
+<script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script> -->
 
-<body>
+<div class="row" id="todocontainer">
+<% for(key in taskObjects){ %>
 
-  <header> <% include ../views/partials/_header %> </header>
+  <div class="small-2 large-4 columns">
+    <ul class="listcontainer">
+     <div class="namecontainer">
+       <h2><%=taskObjects[key].name%></h2>
+       <input type="image" src="../images/check.png" id="read">
+         <div class="togglecontainer">
+           <li>
+             <div class="item-content">
+               <img src="<%=taskObjects.img%>"/>
+               <div class="synopsis" id="scrollContainer"><%=taskObjects[key].desc%>
+               </div>
+               <p class="rating"><%=taskObjects[key].rating%></p>
+               <a href="www.facebook.com" id="url">View the trailer here</a>
+               <div class="buttons">
+                 <p><input type="image" src="../images/check.png" class="sidebuttons delete">
+                 <p><input type="image" src="../images/plus.png" class="sidebuttons complete">
+               </div>
+             </div>
+           </li>
+         </div>
+         </ul>
+     </div>
+      <% } %>
+</div>
 
-BLAH
-
+</body>
 </html>
