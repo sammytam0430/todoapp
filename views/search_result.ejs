@@ -2,7 +2,11 @@
 
 <% include ../views/partials/head %>
 
+<div class="row" id="todocontainer">
 <% for(key in taskObjects){ %>
+
+  <div class="small-2 large-4 columns">
+    <ul class="listcontainer">
      <div class="namecontainer">
        <h2><%=taskObjects[key].name%></h2>
        <input type="image" src="../images/check.png" id="read">
@@ -16,12 +20,15 @@
                <a href="www.facebook.com" id="url">View the trailer here</a>
                <div class="buttons">
                  <p><input type="image" src="../images/check.png" class="sidebuttons delete">
-                 <p><input type="image" src="../images/bird.png" class="sidebuttons complete">
+                 <p><input type="image" src="../images/plus.png" class="sidebuttons complete">
                </div>
              </div>
            </li>
          </div>
+         </ul>
      </div>
-   <% } %>
+      <% } %>
+</div>
+
 
 </html>
