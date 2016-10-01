@@ -1,11 +1,10 @@
-<!-- VIEW WHEN USER ENTERS SEARCH QUERY and HITS ENTER -->
 
 <% include ../views/partials/head %>
 
-<div class="row" id="todocontainer">
+<div id="searchresultcontainer">
 <% for(key in taskObjects){ %>
 
-  <div class="small-2 large-4 columns">
+  <main class="large 1 column">
     <ul class="listcontainer">
      <div class="namecontainer">
        <h2><%=taskObjects[key].name%></h2>
@@ -13,7 +12,7 @@
          <div class="togglecontainer">
            <li>
              <div class="item-content">
-               <img src="<%=taskObjects.img%>"/>
+               <img src="<%=taskObjects[key].img%>"/>
                <div class="synopsis" id="scrollContainer"><%=taskObjects[key].desc%>
                </div>
                <p class="rating"><%=taskObjects[key].rating%></p>
@@ -28,7 +27,6 @@
          </ul>
      </div>
       <% } %>
-</div>
-
+</main>
 
 </html>
