@@ -1,6 +1,7 @@
 .todoheader {
   color: red;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 25px; }
 
 .namecontainer {
   height: 100%;
@@ -10,7 +11,7 @@
   margin-bottom: 10px; }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.25em;
   display: inline-block; }
 
 ul {
@@ -18,24 +19,24 @@ ul {
   margin: 0; }
 
 #watch {
-  height: 30px;
-  width: 30px;
-  margin-left: 20px; }
+  height: 20px;
+  width: 20px;
+  margin-top: 5px; }
 
 #read {
-  height: 30px;
-  width: 30px;
-  margin-left: 20px; }
+  height: 20px;
+  width: 20px;
+  margin-top: 5px; }
 
 #buy {
-  height: 30px;
-  width: 30px;
-  margin-left: 20px; }
+  height: 20px;
+  width: 20px;
+  margin-top: 5px; }
 
 #eat {
-  height: 30px;
-  width: 30px;
-  margin-left: 20px; }
+  height: 20px;
+  width: 20px;
+  margin-top: 5px; }
 
 .togglecontainer {
   display: none; }
@@ -55,5 +56,9 @@ img {
 a#url {
   display: flex;
   justify-content: center; }
+
+.sidebuttons {
+  height: 20px;
+  width: 20px; }
 
 /*# sourceMappingURL=todo.css.map */
