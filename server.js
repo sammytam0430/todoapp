@@ -11,7 +11,7 @@ const knex = require('knex')({
   }
 });
 
-var api = require('./public/scripts/apiModules.js')
+var api = require('./apiModules.js')
 
 const express     = require("express");
 const app         = express();
@@ -19,6 +19,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 const bodyParser  = require("body-parser");
 app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 const PORT = process.env.PORT || 8080;
 const connect        = require('connect')
 const methodOverride = require('method-override')
@@ -34,7 +35,7 @@ app.post('/search', (req, res) => {
   console.log(req.body.type);
   console.log(req.body.userinput);
    taskType = req.body.type;
-  let userTask = req.body.userinput.split(" ").join("+");
+  var userTask = req.body.userinput.split(" ").join("+");
 ///IF?
   if(taskType === "watch") {
     api.getTitles(userTask, (titleInfo) => {
