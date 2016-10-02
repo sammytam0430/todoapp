@@ -1,7 +1,4 @@
 $(document).ready(function() {
-// $(document).foundation()
-
-// const show = require('../lib/select');
 
   $("#buy, #eat, #read, #watch").click(function(event) {
     $(this).next('.togglecontainer').slideToggle();
