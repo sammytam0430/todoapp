@@ -32,12 +32,26 @@ app.get('/', (req, res) => {
   res.render('user_todo');
 });
 
+//completed tasks list for user
+app.get('/completed/:iduser', (req, res) => {
+
+}
+
+//upon submit from search results page
+app.post('/search/result/:idtask', (req, res) => {
+
+}
+
+
+
+
+
 app.post('/search/result', (req, res) => {
   console.log(req.body.type);
   console.log(req.body.userinput);
   var taskType = req.body.type;
   var userTask = req.body.userinput.split(" ").join("+");
-///IF?
+
   if(taskType === "watch") {
     let taskPromises = call.taskObject.watch(userTask, taskType, res, req, (taskPromises) => {
       Promise.all(taskPromises).then((taskObjects) => {
@@ -66,12 +80,9 @@ app.post('/search/result', (req, res) => {
    }
 });
 
-
 app.get('/search', (req, res) => {
   res.render('main_search');
 });
-
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);

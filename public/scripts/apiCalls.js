@@ -3,7 +3,7 @@ var api = require('./apiModules.js')
 
 module.exports = {
   taskObject: {
-    read: function(userInput, taskType, res, req, cb)  {
+    read: (userInput, taskType, res, req, cb) => {
       api.getBooks(userInput, (bookInfo) => {
         var taskObjects = [];
         for (let i = 0; i < 10; i++) {
@@ -24,10 +24,10 @@ module.exports = {
        });
     },
 
-  watch: function(userTask, taskType, res, req, cb)  {
+  watch: (userTask, taskType, res, req, cb) => {
     api.getTitles(userTask, (titles) => {
         var taskPromises = [];
-        titles.forEach(function(title) {
+        titles.forEach((title) => {
           var p = new Promise((resolve, reject) => {
             api.getMovie(title, (movieInfo) => {
               var taskObject = {};
@@ -45,9 +45,9 @@ module.exports = {
       })
   },
 
-    buy: function(userTask, taskType, res, req, cb)  {
-      api.getBuy(userTask, function(buyInfo) {
-        let numItems = function() {
+    buy: (userTask, taskType, res, req, cb) => {
+      api.getBuy(userTask, (buyInfo) => {
+        let numItems = () => {
           if(buyInfo.items.length < 10) {
             return buyInfo.items.length;
           } else { return 10; }
@@ -70,10 +70,10 @@ module.exports = {
      });
     },
 
-    eat: function(userTask, taskType, res, req, cb) {
+    eat: (userTask, taskType, res, req, cb) => {
       api.getToken((yelpToken) => {
         api.getEat(userTask, yelpToken, (eatInfo) => {
-          let numRest = function() {
+          let numRest = () => {
             if (eatInfo.businesses.length < 10) {
               return eatInfo.businesses.length;
             } else { return 10; }
