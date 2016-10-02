@@ -51,5 +51,6 @@ h2 {
 
 #scrollContainer {
   text-align: left;
+  white-space: pre-line;
 }
 /*# sourceMappingURL=search_result.css.map */
