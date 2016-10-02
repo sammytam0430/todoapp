@@ -10,7 +10,6 @@ html {
   box-sizing: inherit; }
 
 .outerbody {
-  height: 100%;
   background-color: #F5E1D0;
   display: flex;
   justify-content: center; }

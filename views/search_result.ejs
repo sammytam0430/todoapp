@@ -7,7 +7,7 @@
 <div class="row" id="todocontainer">
 <% for(key in taskObjects){ %>
 
-  <div class="searchresults">
+  <div class="searchresults small-4 small-centered columns">
     <ul class="listcontainer">
      <div class="namecontainer <%=taskObjects[key].searchVals.type%> <%=taskObjects[key].searchVals.userInput%>">
        <h2><%=taskObjects[key].name%></h2>
@@ -22,8 +22,7 @@
                <p class="rating"><%=taskObjects[key].rating%></p>
                <a href="www.facebook.com" id="url">View the trailer here</a>
                <div class="buttons">
-                 <p><input type="image" src="../images/check.png" class="sidebuttons nextitem">
-                 <p><input type="image" src="../images/plus.png" class="sidebuttons ">
+               <p><a href="#" class="sidebuttons nextitem">Next <i class="fi-arrow-right"></i></a>
                </div>
              </div>
            </li>
@@ -31,6 +30,6 @@
         </ul>
      </div>
       <% } %>
-<!-- </div> -->
+</div>
 </body>
 </html>

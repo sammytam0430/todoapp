@@ -3,22 +3,31 @@ $(document).ready(function() {
 
 // const show = require('../lib/select');
 
-$("#buy, #eat, #read, #watch").click(function(event) {
-  $(this).next('.togglecontainer').slideToggle();
-});
+  $("#buy, #eat, #read, #watch").click(function(event) {
+    $(this).next('.togglecontainer').slideToggle();
+  });
 
-$("div.searchresults:not(:first)").each(function(){
-    $(this).hide();
-});
+  $("div.searchresults:not(:first)").each(function(){
+      $(this).hide();
+  });
 
-$(".nextitem").click(function(event) {
-  $(this)
-    .closest('.searchresults')
-    .next('.searchresults')
-    .slideToggle();
+  $(".nextitem").click(function(event) {
     $(this)
-    .closest('.searchresults').hide();
-});
+      .closest('.searchresults')
+      .next('.searchresults')
+      .slideToggle();
+      $(this)
+      .closest('.searchresults').hide();
+  });
+
+  //   $(".lastitem").click(function(event) {
+  //   $(this)
+  //     .closest('.searchresults')
+  //     .last('.searchresults')
+  //     .slideToggle();
+  //     $(this)
+  //     .prev('.searchresults').show();
+  // });
 });
 
 // function newToDo(item_name, item_category, html_block, status) {
