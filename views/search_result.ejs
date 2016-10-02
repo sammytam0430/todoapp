@@ -33,16 +33,14 @@
           <ul class="listcontainer">
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
               <h2 name='item_name'><%=taskObjects[key].name%></h2>
-              <input type="image" src="../images/check.png" id="item" action="/tweets" method="POST">
               <div class="togglecontainer">
                 <div class="item-content">
                  <img src="<%=taskObjects[key].img%>"/>
-                  <div class="synopsis" id="scrollContainer">
-                    <%=taskObjects[key].desc%>
+                  <div class="synopsis" id="scrollContainer"><%=taskObjects[key].desc%>
+                    <p class="rating">Rating: <%=taskObjects[key].rating%></p>
                   </div>
-                  <p class="rating"><%=taskObjects[key].rating%></p>
-                  <a href='<%=taskObjects[key].url%>' id="url">Click here for more information</a>
-                  <div class="buttons">
+                  <p><a href='<%=taskObjects[key].url%>' id="url" target="_blank">Click here for more information</a>
+                  <p><div class="buttons">
                     <p><a href="#" class="sidebuttons" id="nextitem">Next <i class="fi-arrow-right"></i></a>
                   </div>
                 </div>

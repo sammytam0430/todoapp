@@ -5,18 +5,26 @@ $bg-color: #F5E1D0;
 html {
   box-sizing: border-box;
   display: inline-block;
-  background-color: $bg-color;
-  height: 100%;
-}
-
-
-.fullpage {
-  background-color: $bg-color
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+body {
+  background-color: $bg-color;
+
+  #shia {
+    text-align: center;
+
+    img {
+    height: 600px;
+    border-radius: 500px;
+    }
+  }
+}
+
+
 
 .outerbody {
   background-color: $bg-color;

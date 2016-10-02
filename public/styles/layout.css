@@ -1,25 +1,27 @@
 html {
   box-sizing: border-box;
-  display: inline-block;
-  background-color: #F5E1D0;
-  height: 100%;
-}
-
-.fullpage {
-  background-color: #F5E1D0;
-}
+  display: inline-block; }
 
 *, *:before, *:after {
-  box-sizing: inherit;
-}
+  box-sizing: inherit; }
+
+body {
+  background-color: #F5E1D0; }
+  body #shia {
+    text-align: center; }
+    body #shia img {
+      height: 600px;
+      border-radius: 500px; }
 
 .outerbody {
-  width: 100%;
-  height: auto;
   background-color: #F5E1D0;
   display: flex;
-  justify-content: center;
-  padding: 50px;
-}
+  justify-content: center; }
+
+#todocontainer {
+  max-width: none;
+  background-color: #F5E1D0;
+  height: 100%;
+  padding: 25px; }
 
 /*# sourceMappingURL=layout.css.map */

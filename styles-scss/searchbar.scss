@@ -9,17 +9,18 @@ $bg-color: #A1D490;
   background-color: white;
   height: 110px;
   width: 75%;
-  @include margin(25px 15% 0 15%);
+  @include margin(25px 15% 25px 15%);
   border-radius: 10px;
 
     .options {
       margin-top: 35px;
-      width: 110%;
+      margin-left: 40px;
+      width: 15%;
     }
 
     #search {
-      width: 75%;
-      margin: 35px 35px 0 35px;
+      width: 65%;
+      margin: 35px 10px 0 30px;
       display: inline-block;
     }
 
@@ -27,5 +28,4 @@ $bg-color: #A1D490;
       @include margin;
     }
 }
-
 
