@@ -4,17 +4,14 @@
   <head>
     <% include ./partials/head %>
   </head>
+  <body>
 
-  <header>
     <% include ./partials/header %>
-    <script type="text/javascript" src="../javascript/app.js"></script>
-    <script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
-  </header>
 
-    <% include ./partials/searchbar %>
-    <div class="row" id="todocontainer">
-       <% for(key in taskObjects){ %>
+    <main class="row" id="todocontainer">
 
+      <% include ./partials/searchbar %>
+      <% for(key in taskObjects){ %>
       <div class="searchresults small-4 small-centered columns">
         <ul class="listcontainer">
           <div class="namecontainer <%=taskObjects[key].searchVals.type%> <%=taskObjects[key].searchVals.userInput%>">
@@ -35,11 +32,14 @@
                   </div>
                 </li>
               </div>
-            </ul>
-          </div>
+            </div>
+          </ul>
           <% } %>
-        </div>
       </div>
-    </div>
+    </main>
 
+    <script type="text/javascript" src="../javascript/app.js"></script>
+    <script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
+
+  </body>
 </html>

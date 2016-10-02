@@ -11,6 +11,8 @@ html {
   box-sizing: inherit; }
 
 .outerbody {
+  width: 100%;
+  height: auto;
   background-color: #F5E1D0;
   display: flex;
   justify-content: center; }
