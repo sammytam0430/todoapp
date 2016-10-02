@@ -49,4 +49,7 @@ h2 {
   overflow-y: scroll;
 }
 
+#scrollContainer {
+  text-align: left;
+}
 /*# sourceMappingURL=search_result.css.map */
