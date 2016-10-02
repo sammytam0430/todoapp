@@ -1,19 +1,18 @@
 .searchdiv {
   background-color: white;
-  height: 150px;
+  height: 110px;
   width: 75%;
   align-self: center;
   margin: 0 15% 0 15%;
   border-radius: 10px; }
   .searchdiv .options {
-    margin-top: 50px;
+    margin-top: 35px;
     width: 110%; }
   .searchdiv #search {
     width: 75%;
-    margin: 50px;
+    margin: 35px 35px 0 35px;
     display: inline-block; }
   .searchdiv .submit {
     margin: 50px; }
-
 
 /*# sourceMappingURL=searchbar.css.map */
