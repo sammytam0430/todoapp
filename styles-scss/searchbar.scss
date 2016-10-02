@@ -9,8 +9,7 @@ $bg-color: #A1D490;
   background-color: white;
   height: 110px;
   width: 75%;
-  align-self: center;
-  @include margin(0 15% 0 15%);
+  @include margin(25px 15% 0 15%);
   border-radius: 10px;
 
     .options {

@@ -1,39 +1,45 @@
-  <% include ./partials/head %>
-  <% include ./partials/header %>
-  <% include ./partials/navbar %>
-  <% include ./partials/searchbar %>
+<!DOCTYPE html>
+<html lang="en">
 
-<script type="text/javascript" src="../javascript/app.js"></script>
-<script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
-<body>
-<div class="row" id="todocontainer">
-<% for(key in taskObjects){ %>
+  <head>
+    <% include ./partials/head %>
+  </head>
 
-  <div class="searchresults">
-    <ul class="listcontainer">
-     <div class="namecontainer <%=taskObjects[key].searchVals.type%> <%=taskObjects[key].searchVals.userInput%>">
-       <h2><%=taskObjects[key].name%></h2>
-       <input type="image" src="../images/check.png" id="read">
-         <div class="togglecontainer">
-           <li>
-             <div class="item-content">
-               <img src="<%=taskObjects[key].img%>"/>
-               <div class="synopsis" id="scrollContainer">
-                <%=taskObjects[key].desc%>
-               </div>
-               <p class="rating"><%=taskObjects[key].rating%></p>
-               <a href="www.facebook.com" id="url">View the trailer here</a>
-               <div class="buttons">
-                 <p><input type="image" src="../images/check.png" class="sidebuttons nextitem">
-                 <p><input type="image" src="../images/plus.png" class="sidebuttons ">
-               </div>
-             </div>
-           </li>
-         </div>
-        </ul>
-     </div>
-      <% } %>
-</div>
-<script type="text/javascript" src="../scripts/db.js"></script></body>
-</body>
+  <header>
+    <% include ./partials/header %>
+    <script type="text/javascript" src="../javascript/app.js"></script>
+    <script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
+  </header>
+
+    <% include ./partials/searchbar %>
+    <div class="row" id="todocontainer">
+       <% for(key in taskObjects){ %>
+
+      <div class="searchresults small-4 small-centered columns">
+        <ul class="listcontainer">
+          <div class="namecontainer <%=taskObjects[key].searchVals.type%> <%=taskObjects[key].searchVals.userInput%>">
+            <h2><%=taskObjects[key].name%></h2>
+            <input type="image" src="../images/check.png" id="read">
+              <div class="togglecontainer">
+                <li>
+                  <div class="item-content">
+                    <img src="<%=taskObjects[key].img%>"/>
+                    <div class="synopsis" id="scrollContainer">
+                      <%=taskObjects[key].desc%>
+                    </div>
+                    <p class="rating"><%=taskObjects[key].rating%></p>
+                    <a href="www.facebook.com" id="url">View the trailer here</a>
+                    <div class="buttons">
+                      <p><a href="#" class="sidebuttons nextitem">Next <i class="fi-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
 </html>
