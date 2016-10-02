@@ -32,15 +32,15 @@ app.get('/', (req, res) => {
   res.render('user_todo');
 });
 
-//completed tasks list for user
-app.get('/completed/:iduser', (req, res) => {
+// //completed tasks list for user
+// app.get('/completed/:iduser', (req, res) => {
 
-}
+// }
 
-//upon submit from search results page
-app.post('/search/result/:idtask', (req, res) => {
+// //upon submit from search results page
+// app.post('/search/result/:idtask', (req, res) => {
 
-}
+// }
 
 
 
