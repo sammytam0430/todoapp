@@ -3,6 +3,9 @@ html {
   display: inline-block;
   background-color: #F5E1D0; }
 
+.fullpage {
+  background-color: #F5E1D0; }
+
 *, *:before, *:after {
   box-sizing: inherit; }
 
