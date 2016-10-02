@@ -5,12 +5,19 @@ module.exports = {
   taskObject: {
     read: (userInput, taskType, res, req, cb) => {
       api.getBooks(userInput, (bookInfo) => {
+        if (bookInfo.totalItems == 0) {
+          errorMsg = "no items";
+          cb(errorMsg);
+        }
         var taskObjects = [];
+        let description;
         for (let i = 0; i < 10; i++) {
           let taskObject = {};
           book = bookInfo.items[i].volumeInfo;
           taskObject.name = book.title;
-          taskObject.desc = 'Author: ' + book.authors + '\n  ' + book.description + '\n' + 'Written: ' + book.publishedDate;
+          if(!book.description){description = 'Sorry no description of this book is available';}
+          else{description = book.description;}
+          taskObject.desc = 'Author: ' + book.authors + '\n  ' + description + '\n' + 'Written: ' + book.publishedDate;
           taskObject.rating = book.averageRating;
           if(book.imageLinks) {
            taskObject.img = book.imageLinks.thumbnail;

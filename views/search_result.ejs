@@ -8,28 +8,27 @@
   </head>
   <body>
     <% include ./partials/header %>
-
-<main id="todocontainer">
-  <div class="outerbody">
-    <div class="searchdiv">
-      <form action="/search/result" method="POST">
-          <select class="options" name="type" minimum>
-            <option value="eat" id="eat" <% if(taskObjects[0].searchVals.type == 'eat'){ %> selected <%}%> >I want to eat at:</option>
-            <option value="read" id="read"  <% if(taskObjects[0].searchVals.type == 'read'){ %> selected <%}%> >I want to read:</option>
-            <option value="watch" id="watch" <% if(taskObjects[0].searchVals.type == 'watch'){ %> selected <%}%> >I want to watch:</option>
-            <option value="buy" id="buy" <% if(taskObjects[0].searchVals.type == 'buy'){ %> selected <%}%> >I want to buy:</option>
-          </select>
-            <input id="search" type="text" name="userinput" value='<%=taskObjects[0].searchVals.userInput%>'>
-            <input id="submit" type="submit" value="Submit">
-      </form>
-    </div>
-
-  </div>
+    <main id="todocontainer">
+      <div class="outerbody">
+        <div class="searchdiv">
+          <form action="/search/result" method="POST">
+              <select class="options" name="type">
+             <option value="eat" id="eat" <% if(taskObjects[0].searchVals.type == 'eat'){ %> selected <%}%> >I want to eat at:</option>
+                <option value="read" id="read"  <% if(taskObjects[0].searchVals.type == 'read'){ %> selected <%}%> >I want to read:</option>
+                <option value="watch" id="watch" <% if(taskObjects[0].searchVals.type == 'watch'){ %> selected <%}%> >I want to watch:</option>
+                <option value="buy" id="buy" <% if(taskObjects[0].searchVals.type == 'buy'){ %> selected <%}%> >I want to buy:</option>
+              </select>
+              <input id="search" type="text" name="userinput" value='<%=taskObjects[0].searchVals.userInput%>'>
+              <input id="submit" type="submit" value="Submit">
+          </form>
+        </div>
+      </div>
       <% for(key in taskObjects){ %>
         <div class="searchresults">
           <ul class="listcontainer">
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
               <h2 name='item_name'><%=taskObjects[key].name%></h2>
+              <input type="image" src="../images/check.png" id="item" >
               <div class="togglecontainer">
                 <div class="item-content">
                  <img src="<%=taskObjects[key].img%>"/>

@@ -63,8 +63,7 @@ app.post('/search/result', (req, res) => {
   if(taskType === "read") {
     let userInput = req.body.userinput;
     let taskObjects = call.taskObject.read(userInput, taskType, res, req, (taskObjects) => {
-      console.log(taskObjects);
-      res.render('search_result', {'taskObjects': taskObjects});
+       res.render('search_result', {'taskObjects': taskObjects});
     })
   };
 

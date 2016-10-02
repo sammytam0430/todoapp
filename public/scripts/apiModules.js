@@ -32,7 +32,7 @@ module.exports = {
           return err;
       } else if (incomingMessage.statusCode === 400) {
           return new Error("the Google API Key you are using is invalid");
-      } else {
+      }  else  {
         cb(responseBody);
       }
     })

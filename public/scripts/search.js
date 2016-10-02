@@ -1,21 +1,20 @@
 $(document).ready(function() {
 
-  $('#todocontainer').on('click', '#item', function(e) {
-    e.preventDefault();
-    const $this = $(this)
-    console.log($this.attr('method'));
-    // $.ajax({
-    //   url: $this.attr('action'),
-    //   method: $this.attr('method'),
-    //   data: $this.serialize(),
-    //   dataType: 'json',
-    //   success: function (tweet) {
-    // //     $("#new-tweet").find('textarea').val('');
-    // //     $("#new-tweet").find(".counter").html('140');
-    // //     $('#tweet-container').prepend(createTweetElement(tweet));
-    //   }
-    // });
-  });
+  // $('#todocontainer').on('click', '#item', function(e) {
+  //   e.preventDefault();
+  //   $.ajax({
+  //     url: $this.attr('action'),
+  //     method: $this.attr('method'),
+  //     data: hello,
+  //     dataType: 'json',
+  //     success: function (data) {
+  //       console.log(data);
+  //       $("#new-tweet").find('textarea').val('');
+  //       $("#new-tweet").find(".counter").html('140');
+  //       $('#tweet-container').prepend(createTweetElement(tweet));
+  //     }
+  //   });
+  // });
 
   $("div.searchresults:not(:first)").each(function(){
       $(this).hide();
