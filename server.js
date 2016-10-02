@@ -30,7 +30,7 @@ app.use(methodOverride('_method'))
 
 // HTML
 app.get('/', (req, res) => {
-  res.render('user_todo');
+  res.render('todo');
 });
 
 //completed tasks list for user

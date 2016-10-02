@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
-  $("#buy, #eat, #read, #watch").click(function(event) {
-    $(this).next('.togglecontainer').slideToggle();
+  $("#").on('click', function(e) {
+    e.preventDefault();
+    console.log($(this));
+    $(this).children('.togglecontainer').slideToggle();
   });
 
   $("div.searchresults:not(:first)").each(function(){
