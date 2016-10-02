@@ -1,21 +1,23 @@
-<% include ../views/partials/head %>
+  <% include ./partials/head %>
+  <% include ./partials/header %>
+  <% include ./partials/navbar %>
 
-<script type="text/javascript" src="../javascript/app.js"></script>
-<script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
-
-<!-- <div class="row" id="todocontainer"> -->
+  <% include ./partials/searchbar %>
+<body>
+<div class="row" id="todocontainer">
 <% for(key in taskObjects){ %>
 
   <div class="searchresults">
     <ul class="listcontainer">
-     <div class="namecontainer">
+     <div class="namecontainer <%=taskObjects[key].searchVals.type%> <%=taskObjects[key].searchVals.userInput%>">
        <h2><%=taskObjects[key].name%></h2>
        <input type="image" src="../images/check.png" id="read">
          <div class="togglecontainer">
            <li>
              <div class="item-content">
-               <img src="<%=taskObjects.img%>"/>
-               <div class="synopsis" id="scrollContainer"><%=taskObjects[key].desc%>
+               <img src="<%=taskObjects[key].img%>"/>
+               <div class="synopsis" id="scrollContainer">
+                <%=taskObjects[key].desc%>
                </div>
                <p class="rating"><%=taskObjects[key].rating%></p>
                <a href="www.facebook.com" id="url">View the trailer here</a>
@@ -30,6 +32,5 @@
      </div>
       <% } %>
 <!-- </div> -->
-
 </body>
 </html>

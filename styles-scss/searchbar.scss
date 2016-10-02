@@ -7,20 +7,20 @@ $bg-color: #A1D490;
 
 .searchdiv {
   background-color: white;
-  height: 150px;
+  height: 110px;
   width: 75%;
   align-self: center;
   @include margin(0 15% 0 15%);
   border-radius: 10px;
 
     .options {
-      margin-top: 50px;
+      margin-top: 35px;
       width: 110%;
     }
 
     #search {
       width: 75%;
-      @include margin;
+      margin: 35px 35px 0 35px;
       display: inline-block;
     }
 
