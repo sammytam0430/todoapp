@@ -8,6 +8,11 @@ html {
   background-color: $bg-color;
 }
 
+
+.fullpage {
+  background-color: $bg-color
+}
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -19,8 +24,7 @@ html {
   justify-content: center;
 }
 
-.body {
-}
+
 
 #todocontainer {
   max-width: none;
