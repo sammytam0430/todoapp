@@ -1,0 +1,39 @@
+$font-stack:    Helvetica, sans-serif;
+$bg-color: #F5E1D0;
+
+
+html {
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: $bg-color;
+  height: 100%;
+}
+
+
+.fullpage {
+  background-color: $bg-color
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.outerbody {
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+#todocontainer {
+  max-width: none;
+  background-color: $bg-color;
+  height: 100%;
+  padding: 25px;
+}
+
+
+
+
+

@@ -1,17 +1,27 @@
-/*$primary-text:*/
-.search {
+.searchdiv {
   background-color: white;
-  height: 150px;
-  align-self: center;
-  margin: 0 15% 0 15%;
-  border-radius: 10px; }
-  .search .options {
-    margin-top: 50px;
-    width: 115%; }
-  .search .input-group-field {
-    margin-top: 50px; }
+  height: auto;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
 
-#submit {
-  margin-top: 50px; }
+.searchdiv .options {
+  margin: 35px;
+  width: 15%;
+  float: left;
+}
+
+.searchdiv #search {
+  max-width: 55%;
+  margin: 35px 0;
+  display: inline-block;
+}
+
+.searchdiv #submit {
+  width: 70px;
+  margin: 45px;
+  float: right;
+}
 
 /*# sourceMappingURL=searchbar.css.map */

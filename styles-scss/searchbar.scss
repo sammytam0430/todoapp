@@ -1,0 +1,31 @@
+$font-stack:    Helvetica, sans-serif;
+$bg-color: #A1D490;
+
+@mixin margin($marginvalue:50px) {
+  margin: $marginvalue;
+}
+
+.searchdiv {
+  background-color: white;
+  height: 110px;
+  width: 75%;
+  @include margin(25px 15% 0 15%);
+  border-radius: 10px;
+
+    .options {
+      margin-top: 35px;
+      width: 110%;
+    }
+
+    #search {
+      width: 75%;
+      margin: 35px 35px 0 35px;
+      display: inline-block;
+    }
+
+    .submit {
+      @include margin;
+    }
+}
+
+

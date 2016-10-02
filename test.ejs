@@ -1,0 +1,23 @@
+
+    <% for(key in taskObjects){ %>
+      <div class="namecontainer">
+        <h2><%=taskObjects[key].name></h2>
+        <input type="image" src="../images/check.png" id=<%=taskObjects[key].taskType%>">
+          <div class="togglecontainer">
+            <li>
+              <div class="item-content">
+                <img src="<%=taskObject.img>"/>
+                <div class="synopsis" id="scrollContainer"><%=taskObjects[key].desc%>
+                </div>
+                <p class="rating"><%=taskObjects[key].rating></p>
+                <a href="<%=taskObject.url%>" id="url">View the trailer here</a>
+                <div class="buttons">
+                  <p><input type="image" src="../images/check.png" class="sidebuttons delete">
+                  <p><input type="image" src="../images/bird.png" class="sidebuttons complete">
+                </div>
+              </div>
+            </li>
+          </div>
+      </div>
+    <% } %>
+
