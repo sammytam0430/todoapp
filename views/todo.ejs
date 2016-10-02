@@ -3,32 +3,33 @@
 
   <head>
     <% include ./partials/head %>
+    <link rel="stylesheet" href="/styles/todo.css" type="text/css" />
   </head>
   <body>
 <!-- both "row" and "container" will affect this -->
     <% include ./partials/header %>
 
       <div class="row" id="todocontainer">
-        <div class="small-12 large-expand columns todocolumn" id='buy'>
+        <div class="todocolumn" id='buy'>
           <header><h1 class="todoheader">Buy</h1></header>
         </div>
 
-        <div class="small-12 large-expand columns todocolumn" id='eat'>
+        <div class="todocolumn" id='eat'>
           <header><h1 class="todoheader">Eat</h1></header>
         </div>
 
-          <div class="small-12 large-expand columns todocolumn" id='read'>
+          <div class="todocolumn" id='read'>
           <header><h1 class="todoheader">Read</h1></header>
         </div>
 
-        <div class="small-12 large-expand columns todocolumn" id='watch'>
+        <div class="todocolumn" id='watch'>
           <header><h1 class="todoheader">Watch</h1></header>
         </div>
 
       </div>
 
       <script type="text/javascript" src="./javascript/app.js"></script>
-      <script type="text/javascript" src="./javascript/app_todo.js"></script>
+      <!-- <script type="text/javascript" src="./javascript/app_todo.js"></script> -->
     <script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
   </body>
 </html>

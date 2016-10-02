@@ -1,9 +1,50 @@
 $(document).ready(function() {
 
-  $("#").on('click', function(e) {
+  function createElement(items) {
+    let $item = $('<ul>').addClass('listcontainer').html(
+      '<div id="namecontainer">' +
+        '<h2>' +  items.item_name + '</h2>' +
+        '<input type="image" src="../images/check.png" id="item">' +
+        '<div class="togglecontainer">' +
+          '<li>' +
+            '<div class="item-content">' +
+              '<img src="http://placehold.it/250x150"/>' +
+              '<div class="synopsis" id="scrollContainer">' + items.html_block + '</div>' +
+              '<div class="buttons">' +
+                '<p><input type="image" src="../images/check.png" class="sidebuttons delete"><p>' +
+                '<a href="#" class="sidebuttons"><i class="fi-x"></i></a>' +
+              '</div>' +
+            '</div>' +
+          '</li>' +
+        '</div>' +
+      '</div>'
+    );
+    return $item;
+  }
+
+  function renderitems(items) {
+    items.forEach( (itemData) => {
+      let $item = createElement(itemData);
+      $('#' + itemData.item_category).append($item)
+    });
+  }
+
+  (function loaditems() {
+    $.ajax({
+      url: '/items',
+      method: 'GET',
+      success: renderitems
+    });
+  }());
+
+  // $( "#item" ).click(function(e) {
+  //   e.preventDefault()
+  //   $(this).closest(".togglecontainer").slideToggle("slow");
+  // });
+
+  $('#buy, #read, #eat, #watch').on('click', '#item', function (e) {
     e.preventDefault();
-    console.log($(this));
-    $(this).children('.togglecontainer').slideToggle();
+    $(this).parents('#namecontainer').children('.togglecontainer').slideToggle("slow");
   });
 
   $("div.searchresults:not(:first)").each(function(){
@@ -28,44 +69,3 @@ $(document).ready(function() {
   //     .prev('.searchresults').show();
   // });
 });
-
-// function newToDo(item_name, item_category, html_block, status) {
-//     var toDo = $('${<ul class="listcontainer">}')//.addClass('tweet');
-//     toDo.append($(`
-//       <div class="namecontainer">
-//         <h2>"${taskObject.name}</h2>
-//         <input type="image" src="../images/check.png" id="${taskType}">
-//           <div class="togglecontainer">
-//             <li>
-//               <div class="item-content">
-//                 <img src="${taskObject.img}"/>
-//                 <div class="synopsis" id="scrollContainer">${taskObject.desc}
-//                 </div>
-//                 <p class="rating">${taskObject.rating}</p>
-//                 <a href="${taskObject.url}" id="url">View the trailer here</a>
-//                 <div class="buttons">
-//                   <p><input type="image" src="../images/check.png" class="sidebuttons delete">
-//                   <p><input type="image" src="../images/bird.png" class="sidebuttons complete">
-//                 </div>
-//               </div>
-//             </li>
-//           </div>
-//       </div>`
-//       ));
-//     return toDo;
-//   };
-
-
-  // $("").on("submit", function (event) {
-  //   event.preventDefault();
-  //   var tweet = $(this).serialize();
-  //   $.ajax( {
-  //     url: '/search_result',
-  //     method: 'GET',
-  //     data: taskObject,
-  //     dataType: 'json',
-  //     success: function() {
-  //        $('#tweetcontai').append(newToDo(cb));
-  //     }
-  //   });
-  // });
