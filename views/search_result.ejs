@@ -1,13 +1,12 @@
-
 <% include ../views/partials/head %>
 
-<!-- <script type="text/javascript" src="./javascript/app.js"></script>
-<script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script> -->
+<script type="text/javascript" src="../javascript/app.js"></script>
+<script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
 
-<div class="row" id="todocontainer">
+<!-- <div class="row" id="todocontainer"> -->
 <% for(key in taskObjects){ %>
 
-  <div class="small-2 large-4 columns">
+  <div class="searchresults">
     <ul class="listcontainer">
      <div class="namecontainer">
        <h2><%=taskObjects[key].name%></h2>
@@ -21,16 +20,16 @@
                <p class="rating"><%=taskObjects[key].rating%></p>
                <a href="www.facebook.com" id="url">View the trailer here</a>
                <div class="buttons">
-                 <p><input type="image" src="../images/check.png" class="sidebuttons delete">
-                 <p><input type="image" src="../images/plus.png" class="sidebuttons complete">
+                 <p><input type="image" src="../images/check.png" class="sidebuttons nextitem">
+                 <p><input type="image" src="../images/plus.png" class="sidebuttons ">
                </div>
              </div>
            </li>
          </div>
-         </ul>
+        </ul>
      </div>
       <% } %>
-</div>
+<!-- </div> -->
 
 </body>
 </html>
