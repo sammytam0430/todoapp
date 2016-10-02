@@ -19,11 +19,6 @@ $(".nextitem").click(function(event) {
     $(this)
     .closest('.searchresults').hide();
 });
-
-// $(function() {
-//   $(".nextitem").click(function() {
-//     $(this).addClass("show");
-//   });
 });
 
 // function newToDo(item_name, item_category, html_block, status) {
