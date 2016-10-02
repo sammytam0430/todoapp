@@ -17,7 +17,7 @@
         <div class="searchresults">
           <ul class="listcontainer">
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
-              <h2><%=taskObjects[key].name%></h2>
+              <h2 name='item_name'><%=taskObjects[key].name%></h2>
               <input type="image" src="../images/check.png" id="item" action="/tweets" method="POST">
               <div class="togglecontainer">
                 <div class="item-content">

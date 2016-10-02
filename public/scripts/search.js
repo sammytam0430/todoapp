@@ -21,7 +21,9 @@ $(document).ready(function() {
       $(this).hide();
   });
 
-  $("#nextitem").click(function(event) {
+  $("#todocontainer").on('click', '#nextitem', function(e) {
+    e.preventDefault();
+    console.log('workssss');
     $(this)
       .closest('.searchresults')
       .next('.searchresults')

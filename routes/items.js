@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const show = require('../lib/select');
-const insert = require('../lib/insert');
+// const insert = require('../lib/insert');
 
 router.get('/items', (req, res) => {
   show.detail( (results) => {
@@ -11,7 +11,8 @@ router.get('/items', (req, res) => {
 });
 
 router.post('/items', (req, res) => {
-  
+  console.log(req.body);
+
 });
 
 module.exports = router;
