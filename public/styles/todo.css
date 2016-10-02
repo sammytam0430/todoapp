@@ -4,6 +4,12 @@
   margin-bottom: 25px;
 }
 
+#todocontainer {
+  max-width: none;
+  background-color: #F5E1D0;
+  height: 100%;
+}
+
 #namecontainer {
   height: 100%;
   background-color: red;

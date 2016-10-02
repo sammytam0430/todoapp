@@ -18,7 +18,7 @@
           <ul class="listcontainer">
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
               <h2><%=taskObjects[key].name%></h2>
-              <input type="image" src="../images/check.png" id="item">
+              <input type="image" src="../images/check.png" id="item" action="/tweets" method="POST">
               <div class="togglecontainer">
                 <div class="item-content">
                   <img src="<%=taskObjects[key].img%>"/>
@@ -28,7 +28,7 @@
                   <p class="rating"><%=taskObjects[key].rating%></p>
                   <a href="www.facebook.com" id="url">View the trailer here</a>
                   <div class="buttons">
-                    <p><a href="#" class="sidebuttons nextitem">Next <i class="fi-arrow-right"></i></a>
+                    <p><a href="#" class="sidebuttons" id="nextitem">Next <i class="fi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
@@ -38,7 +38,7 @@
       <% } %>
     </main>
 
-    <script type="text/javascript" src="../javascript/app.js"></script>
+    <script type="text/javascript" src="../scripts/search.js"></script>
     <script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
 
   </body>

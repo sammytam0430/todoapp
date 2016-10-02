@@ -37,35 +37,9 @@ $(document).ready(function() {
     });
   }());
 
-  // $( "#item" ).click(function(e) {
-  //   e.preventDefault()
-  //   $(this).closest(".togglecontainer").slideToggle("slow");
-  // });
-
   $('#buy, #read, #eat, #watch').on('click', '#item', function (e) {
     e.preventDefault();
-    $(this).parents('#namecontainer').children('.togglecontainer').slideToggle("slow");
+    $(this).parents('#namecontainer').children('.togglecontainer').slideToggle();
   });
 
-  $("div.searchresults:not(:first)").each(function(){
-      $(this).hide();
-  });
-
-  $(".nextitem").click(function(event) {
-    $(this)
-      .closest('.searchresults')
-      .next('.searchresults')
-      .slideToggle();
-      $(this)
-      .closest('.searchresults').hide();
-  });
-
-  //   $(".lastitem").click(function(event) {
-  //   $(this)
-  //     .closest('.searchresults')
-  //     .last('.searchresults')
-  //     .slideToggle();
-  //     $(this)
-  //     .prev('.searchresults').show();
-  // });
 });
