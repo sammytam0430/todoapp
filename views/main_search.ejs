@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <% include ./partials/head %>
     <link rel="stylesheet" href="/styles/searchbar.css" type="text/css" />
   </head>
 
+  <% include ./partials/header %>
   <body>
-    <% include ./partials/header %>
     <main>
       <% include ./partials/searchbar %>
-      <img id="shia" src="../images/shia.jpeg">
+      <div id="shia">
+        <img src="../images/shia.jpeg"/>
+      </div>
     </main>
     <script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
   </body>

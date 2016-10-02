@@ -1,27 +1,18 @@
 .searchdiv {
   background-color: white;
-  height: auto;
-  width: 85%;
-  margin: 0 auto;
-  border-radius: 10px;
-}
-
-.searchdiv .options {
-  margin: 35px;
-  width: 15%;
-  float: left;
-}
-
-.searchdiv #search {
-  max-width: 55%;
-  margin: 35px 0;
-  display: inline-block;
-}
-
-.searchdiv #submit {
-  width: 70px;
-  margin: 45px;
-  float: right;
-}
+  height: 110px;
+  width: 75%;
+  margin: 25px 15% 25px 15%;
+  border-radius: 10px; }
+  .searchdiv .options {
+    margin-top: 35px;
+    margin-left: 40px;
+    width: 15%; }
+  .searchdiv #search {
+    width: 65%;
+    margin: 35px 10px 0 30px;
+    display: inline-block; }
+  .searchdiv .submit {
+    margin: 50px; }
 
 /*# sourceMappingURL=searchbar.css.map */
