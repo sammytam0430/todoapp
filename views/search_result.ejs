@@ -11,10 +11,30 @@
     <script type="text/javascript" src="../vendor/jquery-2.2.3.min.js"></script>
   </header>
 
-    <% include ./partials/searchbar %>
-    <div class="row" id="todocontainer">
+<div class="outerbody">
+  <div class="searchdiv">
+    <form action="/search/result" method="POST">
+      <div class="row">
+      <fieldset class="large-2 columns">
+        <select class="options" name="type">
+          <option value="eat" id="eat" <% if('eat' == taskObjects.searchVals.taskType){ %> selected <%}%>>I want to eat at:</option>
+          <option value="read" id="read"  <% if('read' == taskObjects.searchVals.taskType){ %> selected <%}%>>I want to read:</option>
+          <option value="watch" id="watch" <% if('watch' == taskObjects.searchVals.taskType){ %> selected <%}%>>I want to watch:</option>
+          <option value="buy" id="buy" <% if('buy' == taskObjects.searchVals.taskType){ %> selected <%}%>>I want to buy:</option>
+        </select>
+      </fieldset>
+      <fieldset class="large-10 columns">
+        <div class="searchbar">
+          <input id="search" type="text" name="userinput" value='<%=taskObjects[key].searchVals.userInput%>'>
+          <input id="submit" type="submit" value="Submit">
+        </div>
+      </fieldset>
+      </div>
+    </form>
+  </div>
+</div>
+  <div class="row" id="todocontainer">
        <% for(key in taskObjects){ %>
-
       <div class="searchresults small-4 small-centered columns">
         <ul class="listcontainer">
           <div class="namecontainer <%=taskObjects[key].searchVals.type%> <%=taskObjects[key].searchVals.userInput%>">

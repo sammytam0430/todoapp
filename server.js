@@ -43,9 +43,6 @@ app.get('/', (req, res) => {
 // }
 
 
-
-
-
 app.post('/search/result', (req, res) => {
   console.log(req.body.type);
   console.log(req.body.userinput);

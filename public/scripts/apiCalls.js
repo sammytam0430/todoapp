@@ -10,7 +10,7 @@ module.exports = {
           let taskObject = {};
           book = bookInfo.items[i].volumeInfo;
           taskObject.name = book.title;
-          taskObject.desc = book.authors + '\n' + book.description + '\n' + book.publishedDate;
+          taskObject.desc = 'Author: ' + book.authors + '\n  ' + book.description + '\n' + 'Written: ' + book.publishedDate;
           taskObject.rating = book.averageRating;
           if(book.imageLinks) {
            taskObject.img = book.imageLinks.thumbnail;
@@ -33,7 +33,7 @@ module.exports = {
               var taskObject = {};
               taskObject.name = movieInfo.Title;
               taskObject.rating = movieInfo.imdbRating;
-              taskObject.desc = 'Actors: ' + movieInfo.Actors + ', Genre: ' + movieInfo.Genre + '<%<br/>%>  ' + movieInfo.Plot + '<br/>Runtime: ' + movieInfo.Runtime;
+              taskObject.desc = 'Actors: ' + movieInfo.Actors + '. Genre: ' + movieInfo.Genre + '\n  ' + movieInfo.Plot + '\nRuntime: ' + movieInfo.Runtime;
               taskObject.img = movieInfo.Poster;
               taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
               resolve(taskObject);
@@ -60,7 +60,7 @@ module.exports = {
           if(buy.salePrice) {price = buy.salePrice}
           else {price = buy.mrsp}
           if(buy.shortDescription) {taskObject.desc = buy.shortDescription + '\nPrice: ' + price}
-          else {taskObject.desc = buy.longDescription + '\nPrice: ' + price}
+          else {taskObject.desc = '  ' + buy.longDescription + '\nPrice: ' + price}
           taskObject.img = buy.thumbnailImage;
           taskObject.rating = buy.customerRating;
           taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
