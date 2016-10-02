@@ -22,4 +22,13 @@ html {
   padding: 50px;
 }
 
+#shia {
+  align-items: center;
+  background-color: #F5E1D0;
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+
+}
+
 /*# sourceMappingURL=layout.css.map */
