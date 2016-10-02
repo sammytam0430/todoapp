@@ -67,7 +67,6 @@ module.exports = {
    })
   },
 
-
   getEat: function(options, yelpToken, cb) {
     request.get({
       url: eatRoot + options,
