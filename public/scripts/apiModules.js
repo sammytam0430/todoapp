@@ -7,38 +7,38 @@ const buyRoot = "http://api.walmartlabs.com/v1/search?apiKey=" + process.env.WAL
 
 module.exports = {
 //POST request to Get OAUTH token from YELP
-  getToken: function(cb) {
-  request.post({
-  url: "https://api.yelp.com/oauth2/token",
-  form: {
-    grant_type: 'client_credentials',
-    client_id: process.env.YELP_USR,
-    client_secret: process.env.YELP_KEY
-    },
-    json: true
-  }, function(err, httpResponse, body) {
-    if (err) { return (err); }
-    yelpToken = 'Bearer ' + body.access_token;
-    cb(yelpToken);
-  })
-},
+  getToken: (cb) => {
+    request.post({
+    url: "https://api.yelp.com/oauth2/token",
+    form: {
+      grant_type: 'client_credentials',
+      client_id: process.env.YELP_USR,
+      client_secret: process.env.YELP_KEY
+      },
+      json: true
+    }, function(err, httpResponse, body) {
+      if (err) { return (err); }
+      yelpToken = 'Bearer ' + body.access_token;
+      cb(yelpToken);
+    })
+  },
 
-  getBooks: function(options, cb) {
+  getBooks: (options, cb) => {
     request.get({
       url: gooRoot + options + '&key=' + process.env.GOOGLE_KEY,
       json:true
     }, (err, incomingMessage, responseBody) => {
         if (err) {
-         return err;
+          return err;
       } else if (incomingMessage.statusCode === 400) {
-         return new Error("the Google API Key you are using is invalid");
+          return new Error("the Google API Key you are using is invalid");
       } else {
         cb(responseBody);
       }
     })
   },
 
-  getMovie: function(options, cb) {
+  getMovie: (options, cb) => {
     request.get({
       url: mdRoot + "&t=" + options,
       json: true
@@ -50,24 +50,25 @@ module.exports = {
       }
     })
   },
-////Test getMovies with choice.
-  getTitles: function(options, cb) {
+
+  getTitles: (options, cb) => {
     request.get({
     url: mdRoot + "pages=10&s=" + options,
     json: true
-  }, (err, incomingMessage, responseBody) => {
-    if (err) {return err;}
-    else {
-      titles = []
-      responseBody.Search.forEach((item) => {
+    }, (err, incomingMessage, responseBody) => {
+      if (err) {return err;}
+      else {
+        titles = []
+        responseBody.Search.forEach((item) => {
         title = item.Title.split(" ").join("+");
         titles.push(title);
       })
-    } cb(titles);
+    }
+    cb(titles);
    })
   },
 
-  getEat: function(options, yelpToken, cb) {
+  getEat: (options, yelpToken, cb) => {
     request.get({
       url: eatRoot + options,
       headers:{"authorization": yelpToken},
@@ -82,7 +83,7 @@ module.exports = {
     })
   },
 
-  getBuy: function(options, cb) {
+  getBuy: (options, cb) => {
     console.log(buyRoot + "query=" + options)
     request.get({url: buyRoot + "query=" + options,
       json:true},
