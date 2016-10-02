@@ -17,6 +17,7 @@ module.exports = {
           } else {
            taskObject.img = "../images/shia.jpg";
           }
+          taskObject.url = book.infoLink
           taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
           taskObjects.push(taskObject);
         }
@@ -35,6 +36,7 @@ module.exports = {
               taskObject.rating = movieInfo.imdbRating;
               taskObject.desc = 'Actors: ' + movieInfo.Actors + '. Genre: ' + movieInfo.Genre + '\n  ' + movieInfo.Plot + '\nRuntime: ' + movieInfo.Runtime;
               taskObject.img = movieInfo.Poster;
+              taskObject.url = "http://www.imdb.com/title/" + movieInfo.imdbID
               taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
               resolve(taskObject);
             });
@@ -63,6 +65,7 @@ module.exports = {
           else {taskObject.desc = '  ' + buy.longDescription + '\nPrice: ' + price}
           taskObject.img = buy.thumbnailImage;
           taskObject.rating = buy.customerRating;
+          taskObject.url = buy.productUrl;
           taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
           taskObjects.push(taskObject);
        }
@@ -87,6 +90,7 @@ module.exports = {
           taskObject.desc = eat.location.address1 + ", " + eat.location.city + '\nCuisine: '
             + eat.categories[0].title + '\nContact number: ' + eat.phone + '\nPrice Level: ' + eat.price
           taskObject.img = eat.image_url;
+          taskObject.url = eat.url;
           taskObject.searchVals = {type: taskType, userInput: req.body.userinput};
           taskObjects.push(taskObject);
         };
