@@ -18,6 +18,7 @@ const express     = require("express");
 const app         = express();
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
+app.use(require('./routes/items.js'));
 const bodyParser  = require("body-parser");
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
@@ -29,13 +30,15 @@ app.use(methodOverride('_method'))
 
 // HTML
 app.get('/', (req, res) => {
-  res.render('user_todo');
+  res.render('todo');
 });
 
-// //completed tasks list for user
-// app.get('/completed/:iduser', (req, res) => {
 
-// }
+//completed tasks list for user
+app.get('/completed/:iduser', (req, res) => {
+
+});
+
 
 // //upon submit from search results page
 // app.post('/search/result/:idtask', (req, res) => {

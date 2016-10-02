@@ -60,7 +60,11 @@ module.exports = {
           if(buy.salePrice) {price = buy.salePrice}
           else {price = buy.mrsp}
           if(buy.shortDescription) {taskObject.desc = buy.shortDescription + '\nPrice: ' + price}
+<<<<<<< HEAD
           else {taskObject.desc = '  ' + buy.longDescription + '\nPrice: ' + price}
+=======
+          else {taskObject.desc = buy.longDescription + '\nPrice: ' + price}
+>>>>>>> 80e4df3515e08c1e047d622f8e0305af44fd7bb0
           taskObject.img = buy.thumbnailImage;
           taskObject.rating = buy.customerRating;
           taskObject.searchVals = {type: taskType, userInput: req.body.userinput};

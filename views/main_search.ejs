@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <% include ./partials/head %>
-</head>
+  <head>
+    <% include ./partials/head %>
+    <link rel="stylesheet" href="/styles/searchbar.css" type="text/css" />
+  </head>
 
-<header>
-  <% include ./partials/header %>
-  <script type="text/javascript" src="./javascript/app.js"></script>
-  <script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
-</header>
+  <body>
+    <% include ./partials/header %>
+    <main>
+      <% include ./partials/searchbar %>
+    </main>
 
-<body>
-  <% include ./partials/searchbar %>
-</body>
+    <script type="text/javascript" src="./vendor/jquery-2.2.3.min.js"></script>
+  </body>
 </html>
+
