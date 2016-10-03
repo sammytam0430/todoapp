@@ -28,22 +28,25 @@
       <% for(key in taskObjects){ %>
         <div class="searchresults">
           <ul class="listcontainer">
+            <form class="item_form" method="POST" action='/test'>
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
-              <h2 name='item_name'><%=taskObjects[key].name%></h2>
-              <input type="image" src="../images/check.png" id="item" >
+              <h2 name='item_name' class='item_name'><%=taskObjects[key].name%></h2>
+              <input type='hidden' value='<%= JSON.stringify(taskObjects[key])%>' name="test"></input>
+              <button type="submit"><input type="image" src="../images/shia-nbg.png" id="item"></button>
               <div class="togglecontainer">
                 <div class="item-content">
                   <img src="<%=taskObjects[key].img%>"/>
-                  <div class="synopsis" id="scrollContainer"> <%=taskObjects[key].desc%>
+                  <div name='synopsis' class="synopsis" id="scrollContainer"> <%=taskObjects[key].desc%>
                   </div>
                   <p class="rating"><%=taskObjects[key].rating%></p>
-                  <a href="www.facebook.com" id="url">View the trailer here</a>
-                  <div class="buttons">
+                  <a href="<%=taskObjects[key].url%>" id="url" target="_blank">Visit the page!</a>
+                  <div class="buttons"><br>
                     <p><a href="#" class="sidebuttons" id="nextitem">Next <i class="fi-arrow-right"></i></a>
                   </div>
                 </div>
               </div>
             </div>
+          </form>
           </ul>
         </div>
       <% } %>

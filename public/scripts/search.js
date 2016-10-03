@@ -1,21 +1,5 @@
 $(document).ready(function() {
 
-  // $('#todocontainer').on('click', '#item', function(e) {
-  //   e.preventDefault();
-  //   $.ajax({
-  //     url: $this.attr('action'),
-  //     method: $this.attr('method'),
-  //     data: hello,
-  //     dataType: 'json',
-  //     success: function (data) {
-  //       console.log(data);
-  //       $("#new-tweet").find('textarea').val('');
-  //       $("#new-tweet").find(".counter").html('140');
-  //       $('#tweet-container').prepend(createTweetElement(tweet));
-  //     }
-  //   });
-  // });
-
   $("div.searchresults:not(:first)").each(function(){
       $(this).hide();
   });
