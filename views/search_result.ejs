@@ -31,9 +31,9 @@
             <form class="item_form">
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
               <h2 name='item_name' class='item_name'><%=taskObjects[key].name%></h2>
-              <h3 name="taskObject" class="taskObject" diplay='none'><%=taskObjects[key]%></h3>
-              <h3 name ='item_category' class='item_category' display='none'><%=taskObjects[0].searchVals.type%></h3>
               <button type="submit"><input type="image" src="../images/shia-nbg.png" id="item" ></button>
+              <h3 name="taskObject" class="taskObject" diplay='none'><%taskObjects[key]%></h3>
+              <h3 name ='item_category' class='item_category' display='none'><%taskObjects[0].searchVals.type%></h3>
               <div class="togglecontainer">
                 <div class="item-content">
                   <img src="<%=taskObjects[key].img%>"/>
