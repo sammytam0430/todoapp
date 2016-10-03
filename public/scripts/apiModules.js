@@ -57,7 +57,10 @@ module.exports = {
     json: true
     }, (err, incomingMessage, responseBody) => {
       if (err) {return err;}
-      else {
+      if (responseBody.Response == 'False') {
+        let titles = "no results";
+        return cb(titles);
+      } else {
         titles = []
         responseBody.Search.forEach((item) => {
         title = item.Title.split(" ").join("+");

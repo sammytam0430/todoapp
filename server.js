@@ -54,29 +54,34 @@ app.post('/search/result', (req, res) => {
 
   if(taskType === "watch") {
     let taskPromises = call.taskObject.watch(userTask, taskType, res, req, (taskPromises) => {
-      Promise.all(taskPromises).then((taskObjects) => {
-        res.render('search_result', {taskObjects: taskObjects})
-      });
+      if (taskPromises == "no results") {res.redirect('/search')}
+      else {
+        Promise.all(taskPromises).then((taskObjects) => {
+          res.render('search_result', {taskObjects: taskObjects})
+        });
+      }
     });
   };
 
   if(taskType === "read") {
     let userInput = req.body.userinput;
     let taskObjects = call.taskObject.read(userInput, taskType, res, req, (taskObjects) => {
-      console.log(taskObjects);
-      res.render('search_result', {'taskObjects': taskObjects});
+      if (taskObjects == "no results") {res.redirect('/search')}
+      else {res.render('search_result', {'taskObjects': taskObjects})};
     })
   };
 
   if(taskType === "eat") {
     let taskObjects = call.taskObject.eat(userTask, taskType, res, req, (taskObjects) => {
-      res.render('search_result', {'taskObjects': taskObjects});
+      if (taskObjects == "no results") {res.redirect('/search')}
+      else {res.render('search_result', {'taskObjects': taskObjects})};
     })
   };
 
   if(taskType === "buy") {
     let taskObjects = call.taskObject.buy(userTask, taskType, res, req, (taskObjects) => {
-      res.render('search_result', {'taskObjects': taskObjects});
+      if (taskObjects == "no results") {res.redirect('/search')}
+      else {res.render('search_result', {'taskObjects': taskObjects})};
     })
    }
 });

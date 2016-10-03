@@ -2,29 +2,36 @@ $font-stack:    Helvetica, sans-serif;
 $bg-color: #F5E1D0;
 
 
+
 html {
   box-sizing: border-box;
   display: inline-block;
-  background-color: $bg-color;
-  height: 100%;
+  background-color: #F5E1D0;
+  /*height: 100%;*/
 }
 
-
-.fullpage {
-  background-color: $bg-color
+body {
+  background-color: $bg-color;
 }
 
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-.outerbody {
-  background-color: $bg-color;
-  display: flex;
-  justify-content: center;
+#shia {
+  height: 500px;
+  border-radius: 70px;
+  margin-left: 35%;
 }
 
-
+.outerbody {
+  width: 100%;
+  height: auto;
+  background-color: #F5E1D0;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
 
 #todocontainer {
   max-width: none;
@@ -33,7 +40,5 @@ html {
   padding: 25px;
 }
 
-
-
-
+/*# sourceMappingURL=layout.css.map */
 
