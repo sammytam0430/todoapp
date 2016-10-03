@@ -16,23 +16,35 @@
 }
 
 #item {
-  height: 20px;
-  width: 20px;
+  height: 35px;
+  width: 31px;
   margin-top: 5px;
+/*
+  &:hover {
+    height: 70px;
+    width: 62px;
+    position: absolute;
+    z-index: 1000;
+  }*/
 }
 
 .namecontainer {
   height: 100%;
   width: 50%;
-  background-color: red;
+  background-color: #F5E1D0;
   border-radius: 20px;
   text-align: center;
   margin: 25px 0 10px 25%;
+  border: 1px solid black;
 }
 
 h2 {
   font-size: 30px;
   display: inline-block;
+}
+
+.item-content img {
+  border-radius: 25px;
 }
 
 
@@ -53,5 +65,6 @@ h2 {
   white-space: pre-line;
   text-align: center;
   overflow-y: scroll;
+  border-radius: 25px;
 }
 /*# sourceMappingURL=search_result.css.map */
