@@ -1,23 +1,19 @@
 $(document).ready(function() {
 
-$('#todocontainer').on('submit', '.item_form', function(e) {
-  e.preventDefault();
-  var item_name = $(this).find('.item_name').html();
-  var html_block = $(this).find('.synopsis').html();
-
-  $.ajax({
-    url: '../../items',
-    method: 'POST',
-    data: { item_name: item_name, html_block: html_block },
-    dataType: 'json',
-    success: function (data) {
-      // console.log(data);
-      // $("#new-tweet").find('textarea').val('');
-      // $("#new-tweet").find(".counter").html('140');
-      // $('#tweet-container').prepend(createTweetElement(tweet));
-    }
+  $('#todocontainer').on('submit', '.item_form', function(e) {
+    e.preventDefault();
+    const item_name = $(this).find('.item_name').html();
+    const item_category = $(this).find('.item_category').html();
+    const html_block = $(this).find('.taskObject').html();
+    console.log('here');
+    $.ajax({
+      url: '../../items',
+      method: 'POST',
+      data: { item_name: item_name, item_category: item_category, html_block: html_block },
+      dataType: 'json',
+      success: function(){}
+    });
   });
-});
 
   $("div.searchresults:not(:first)").each(function(){
       $(this).hide();

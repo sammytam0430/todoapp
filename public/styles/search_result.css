@@ -45,6 +45,12 @@ h2 {
   text-align: center;
   overflow-y: scroll; }
 
-/*# sourceMappingURL=search_result.css.map */
+.item_category {
+  display: none;
+}
+
+.taskObject {
+  display: none;
+}
 
 /*# sourceMappingURL=search_result.css.map */
