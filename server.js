@@ -1,5 +1,7 @@
 require('dotenv').config();
 const insert = require('./lib/insert.js');
+const remove = require('./lib/delete.js');
+
 const knex = require('knex')({
   client: 'pg',
   connection: {
@@ -34,22 +36,21 @@ app.get('/', (req, res) => {
   res.render('todo');
 });
 
-app.post('/test', (req,res) =>{
+app.post('/test', (req, res) =>{
   var item = JSON.parse(req.body.test);
   insert.add(item, (results) => {console.log(results)});
   res.redirect('/');
 });
 
+app.delete('/', (req, res) => {
+  var item = req.body.item;
+  remove.deleteItem(item, (results) => {console.log(results)});
+  res.redirect('/');
+});
 // //completed tasks list for user
 // app.get('/completed/:iduser', (req, res) => {
 
 // });
-
-
-// //upon submit from search results page
-// app.post('/search/result/:idtask', (req, res) => {
-
-// }
 
 
 app.post('/search/result', (req, res) => {
