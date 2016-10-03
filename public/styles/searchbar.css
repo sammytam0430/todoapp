@@ -3,25 +3,23 @@
   height: auto;
   width: 85%;
   margin: 0 auto;
-  border-radius: 10px;
-}
+  border-radius: 10px; }
 
 .searchdiv .options {
   margin: 35px;
   width: 15%;
-  float: left;
-}
+  float: left; }
 
 .searchdiv #search {
   max-width: 55%;
   margin: 35px 0;
-  display: inline-block;
-}
+  display: inline-block; }
 
 .searchdiv #submit {
   width: 70px;
   margin: 45px;
-  float: right;
-}
+  float: right; }
+
+/*# sourceMappingURL=searchbar.css.map */
 
 /*# sourceMappingURL=searchbar.css.map */
