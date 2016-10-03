@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
   function createElement(items) {
+    items.html_block = JSON.parse(items.html_block);
     let $item = $('<ul>').addClass('listcontainer').html(
       '<div id="namecontainer">' +
         '<h2>' +  items.item_name + '</h2>' +
@@ -8,8 +9,8 @@ $(document).ready(function() {
         '<div class="togglecontainer">' +
           '<li>' +
             '<div class="item-content">' +
-              '<img src="http://placehold.it/250x150"/>' +
-              '<div class="synopsis" id="scrollContainer">' + items.html_block + '</div>' +
+              '<img src="' + items.html_block.img + '"/>' +
+              '<div class="synopsis" id="scrollContainer">' + items.html_block.desc + '</div>' +
               '<div class="buttons">' +
                 '<p><input type="image" src="../images/check.png" class="sidebuttons delete"><p>' +
                 '<a href="#" class="sidebuttons"><i class="fi-x"></i></a>' +
