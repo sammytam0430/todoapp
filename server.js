@@ -51,13 +51,19 @@ app.put('/', (req, res) => {
   var status = req.body.true;
   var item = req.body.item;
   update.updateItem(status, item, (results) => {console.log(results)});
-  res.redirect('/');
+  res.redirect('/complete');
 });
 
 app.delete('/', (req, res) => {
   var item = req.body.item;
   remove.deleteItem(item, (results) => {console.log(results)});
   res.redirect('/');
+});
+
+app.delete('/complete', (req, res) => {
+  var item = req.body.item;
+  remove.deleteItem(item, (results) => {console.log(results)});
+  res.redirect('/complete');
 });
 // //completed tasks list for user
 // app.get('/completed/:iduser', (req, res) => {
