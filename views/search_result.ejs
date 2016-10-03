@@ -28,12 +28,11 @@
       <% for(key in taskObjects){ %>
         <div class="searchresults">
           <ul class="listcontainer">
-            <form class="item_form">
+            <form class="item_form" method="POST" action='/test'>
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
               <h2 name='item_name' class='item_name'><%=taskObjects[key].name%></h2>
-              <button type="submit"><input type="image" src="../images/shia-nbg.png" id="item" ></button>
-              <h3 name="taskObject" class="taskObject"><%= taskObjects[key]%></h3>
-              <h3 name ='item_category' class='item_category'><%= taskObjects[0].searchVals.type%></h3>
+              <input type='hidden' value='<%= JSON.stringify(taskObjects[key])%>' name="test"></input>
+              <button type="submit"><input type="image" src="../images/shia-nbg.png" id="item"></button>
               <div class="togglecontainer">
                 <div class="item-content">
                   <img src="<%=taskObjects[key].img%>"/>

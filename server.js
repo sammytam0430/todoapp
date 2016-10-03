@@ -1,4 +1,5 @@
 require('dotenv').config();
+const insert = require('./lib/insert.js');
 const knex = require('knex')({
   client: 'pg',
   connection: {
@@ -33,6 +34,11 @@ app.get('/', (req, res) => {
   res.render('todo');
 });
 
+app.post('/test', (req,res) =>{
+  var item = JSON.parse(req.body.test);
+  insert.add(item, (results) => {console.log(results)});
+  res.redirect('/');
+});
 
 // //completed tasks list for user
 // app.get('/completed/:iduser', (req, res) => {
