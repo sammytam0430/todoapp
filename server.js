@@ -1,6 +1,7 @@
 require('dotenv').config();
 const insert = require('./lib/insert.js');
 const remove = require('./lib/delete.js');
+const update = require('./lib/update.js');
 
 const knex = require('knex')({
   client: 'pg',
@@ -36,9 +37,20 @@ app.get('/', (req, res) => {
   res.render('todo');
 });
 
+app.get('/complete', (req, res) => {
+  res.render('complete');
+});
+
 app.post('/test', (req, res) =>{
   var item = JSON.parse(req.body.test);
   insert.add(item, (results) => {console.log(results)});
+  res.redirect('/');
+});
+
+app.put('/', (req, res) => {
+  var status = req.body.true;
+  var item = req.body.item;
+  update.updateItem(status, item, (results) => {console.log(results)});
   res.redirect('/');
 });
 

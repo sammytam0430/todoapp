@@ -12,13 +12,6 @@ $(document).ready(function() {
               '<img src="' + items.html_block.img + '"/>' +
               '<div class="synopsis" id="scrollContainer">' + items.html_block.desc + '</div>' +
               '<div class="buttons">' +
-                '<form class="item_form" method="POST" action="/?_method=PUT">' +
-                  '<input type="hidden" value="true" name="true"></input>' +
-                  '<input type="hidden" value=' + items.item_name + ' name="item"></input>' +
-                  '<button type="submit"><p><input type="image" src="../images/check.png" class="sidebuttons delete"><p><button>' +
-                '</form>' +
-                '</div>' +
-                '<div>' +
                 '<form class="item_form" method="POST" action="/?_method=DELETE">' +
                   '<input type="hidden" value=' + items.item_name + ' name="item"></input>' +
                   '<button type="submit"><a class="sidebuttons"><i class="fi-x"></i></a><button>' +
@@ -41,7 +34,7 @@ $(document).ready(function() {
 
   (function loaditems() {
     $.ajax({
-      url: '/items',
+      url: '/completedItems',
       method: 'GET',
       success: renderitems
     });
