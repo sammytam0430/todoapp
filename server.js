@@ -1,3 +1,5 @@
+"use strict";
+
 require('dotenv').config();
 const insert = require('./lib/insert.js');
 const remove = require('./lib/delete.js');
