@@ -1,4 +1,3 @@
-"use strict";
 require('dotenv').config();
 const request = require('request')
 const gooRoot = "https://www.googleapis.com/books/v1/volumes?q=intitle:"

@@ -1,25 +1,25 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/home/vagrant/.nvm/versions/node/v6.5.0/bin/node',
-1 verbose cli   '/home/vagrant/.nvm/versions/node/v6.5.0/bin/npm',
+1 verbose cli [ '/home/vagrant/.nvm/versions/node/v6.7.0/bin/node',
+1 verbose cli   '/home/vagrant/.nvm/versions/node/v6.7.0/bin/npm',
 1 verbose cli   'start' ]
-2 info using npm@3.10.3
-3 info using node@v6.5.0
+2 info using npm@3.10.8
+3 info using node@v6.7.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
 5 info lifecycle todoapp@1.0.0~prestart: todoapp@1.0.0
 6 silly lifecycle todoapp@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle todoapp@1.0.0~start: todoapp@1.0.0
 8 verbose lifecycle todoapp@1.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle todoapp@1.0.0~start: PATH: /home/vagrant/.nvm/versions/node/v6.5.0/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/todoapp/node_modules/.bin:/home/vagrant/.nvm/versions/node/v6.5.0/bin:/usr/local/heroku/bin:/home/vagrant/.nvm/versions/node/v6.5.0/bin:/usr/local/rvm/gems/ruby-2.3.0/bin:/usr/local/rvm/gems/ruby-2.3.0@global/bin:/usr/local/rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/rvm/bin:/opt/vagrant_ruby/bin
+9 verbose lifecycle todoapp@1.0.0~start: PATH: /home/vagrant/.nvm/versions/node/v6.7.0/lib/node_modules/npm/bin/node-gyp-bin:/vagrant/todoapp/node_modules/.bin:/usr/local/heroku/bin:/home/vagrant/.nvm/versions/node/v6.7.0/bin:/usr/local/rvm/gems/ruby-2.3.0/bin:/usr/local/rvm/gems/ruby-2.3.0@global/bin:/usr/local/rvm/rubies/ruby-2.3.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/rvm/bin:/opt/vagrant_ruby/bin
 10 verbose lifecycle todoapp@1.0.0~start: CWD: /vagrant/todoapp
 11 silly lifecycle todoapp@1.0.0~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle todoapp@1.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle todoapp@1.0.0~start: Failed to exec start script
 14 verbose stack Error: todoapp@1.0.0 start: `node server.js`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/home/vagrant/.nvm/versions/node/v6.5.0/lib/node_modules/npm/lib/utils/lifecycle.js:242:16)
+14 verbose stack     at EventEmitter.<anonymous> (/home/vagrant/.nvm/versions/node/v6.7.0/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (/home/vagrant/.nvm/versions/node/v6.5.0/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at ChildProcess.<anonymous> (/home/vagrant/.nvm/versions/node/v6.7.0/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
@@ -27,9 +27,9 @@
 15 verbose pkgid todoapp@1.0.0
 16 verbose cwd /vagrant/todoapp
 17 error Linux 3.2.0-101-generic-pae
-18 error argv "/home/vagrant/.nvm/versions/node/v6.5.0/bin/node" "/home/vagrant/.nvm/versions/node/v6.5.0/bin/npm" "start"
-19 error node v6.5.0
-20 error npm  v3.10.3
+18 error argv "/home/vagrant/.nvm/versions/node/v6.7.0/bin/node" "/home/vagrant/.nvm/versions/node/v6.7.0/bin/npm" "start"
+19 error node v6.7.0
+20 error npm  v3.10.8
 21 error code ELIFECYCLE
 22 error todoapp@1.0.0 start: `node server.js`
 22 error Exit status 1
