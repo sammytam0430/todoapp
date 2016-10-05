@@ -27,6 +27,7 @@
     "foundation-apps": "^1.2.0",
     "knex": "^0.12.2",
     "method-override": "^2.3.6",
-    "pg": "^6.1.0"
+    "pg": "^6.1.0",
+    "request": "^2.75.0"
   }
 }
