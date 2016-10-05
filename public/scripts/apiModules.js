@@ -1,3 +1,5 @@
+"use strict";
+
 require('dotenv').config();
 const request = require('request')
 const gooRoot = "https://www.googleapis.com/books/v1/volumes?q=intitle:"
@@ -18,7 +20,7 @@ module.exports = {
       json: true
     }, function(err, httpResponse, body) {
       if (err) { return (err); }
-      yelpToken = 'Bearer ' + body.access_token;
+      const yelpToken = 'Bearer ' + body.access_token;
       cb(yelpToken);
     })
   },
@@ -52,23 +54,25 @@ module.exports = {
   },
 
   getTitles: (options, cb) => {
+    const titles = []
     request.get({
-    url: mdRoot + "pages=10&s=" + options,
-    json: true
+      url: mdRoot + "pages=10&s=" + options,
+      json: true
     }, (err, incomingMessage, responseBody) => {
-      if (err) {return err;}
+      if (err) {
+        return err;
+      }
       if (responseBody.Response == 'False') {
         let titles = "no results";
         return cb(titles);
       } else {
-        titles = []
         responseBody.Search.forEach((item) => {
-        title = item.Title.split(" ").join("+");
-        titles.push(title);
-      })
-    }
-    cb(titles);
-   })
+          const title = item.Title.split(" ").join("+");
+          titles.push(title);
+        })
+      }
+      cb(titles);
+    })
   },
 
   getEat: (options, yelpToken, cb) => {
@@ -77,7 +81,7 @@ module.exports = {
       headers:{"authorization": yelpToken},
       json: true
     },
-      function (err, incomingMessage, responseBody) {
+    function (err, incomingMessage, responseBody) {
       if(err) {
         return err;
       } else {
@@ -88,16 +92,18 @@ module.exports = {
 
   getBuy: (options, cb) => {
     console.log(buyRoot + "query=" + options)
-    request.get({url: buyRoot + "query=" + options,
-      json:true},
-      function (err, incomingMessage, responseBody) {
+    request.get({
+      url: buyRoot + "query=" + options,
+      json:true
+    },
+    function (err, incomingMessage, responseBody) {
       if(err) {
         return err;
       } else if (incomingMessage.statusCode == 403) {
         console.log("we dont have a code");
         return new Error("the Walmart API Key you are using is invalid");
       } else {
-       cb(responseBody);
+        cb(responseBody);
       }
     })
   }

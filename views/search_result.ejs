@@ -28,7 +28,7 @@
       <% for(key in taskObjects){ %>
         <div class="searchresults">
           <ul class="listcontainer">
-            <form class="item_form" method="POST" action='/test'>
+            <form class="item_form" method="POST" action='/'>
             <div class="namecontainer items <%=taskObjects[key].searchVals.userInput%>">
               <h2 name='item_name' class='item_name'><%=taskObjects[key].name%></h2>
               <input type='hidden' value='<%= JSON.stringify(taskObjects[key])%>' name="test"></input>

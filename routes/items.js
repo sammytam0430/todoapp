@@ -1,3 +1,5 @@
+"use strict";
+
 const router = require('express').Router();
 const show = require('../lib/select');
 const insert = require('../lib/insert');
